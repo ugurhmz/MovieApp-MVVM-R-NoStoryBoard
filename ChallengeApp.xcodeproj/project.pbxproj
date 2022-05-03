@@ -14,6 +14,12 @@
 		632D2FB62821E55D00441152 /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FB52821E55D00441152 /* DataProviderProtocol.swift */; };
 		632D2FB82821E60800441152 /* DecodableResponseRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FB72821E60800441152 /* DecodableResponseRequest.swift */; };
 		632D2FBA2821E64500441152 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FB92821E64500441152 /* Typealias.swift */; };
+		632D2FBC2821E84900441152 /* MovieDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FBB2821E84900441152 /* MovieDetailsModel.swift */; };
+		632D2FBE2821E88700441152 /* MovieNowPlayingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FBD2821E88700441152 /* MovieNowPlayingModel.swift */; };
+		632D2FC02821E8A500441152 /* MovieUpComingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FBF2821E8A500441152 /* MovieUpComingModel.swift */; };
+		632D2FC22821E8DE00441152 /* MovieDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FC12821E8DE00441152 /* MovieDetailRequest.swift */; };
+		632D2FC42821EA2F00441152 /* MovieNowPlayingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FC32821EA2F00441152 /* MovieNowPlayingRequest.swift */; };
+		632D2FC62821EB1500441152 /* MovieUpcomingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FC52821EB1500441152 /* MovieUpcomingRequest.swift */; };
 		633CC23E28216C2600252191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC23D28216C2600252191 /* AppDelegate.swift */; };
 		633CC24028216C2600252191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC23F28216C2600252191 /* SceneDelegate.swift */; };
 		633CC24228216C2600252191 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC24128216C2600252191 /* HomeVC.swift */; };
@@ -31,6 +37,12 @@
 		632D2FB52821E55D00441152 /* DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
 		632D2FB72821E60800441152 /* DecodableResponseRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodableResponseRequest.swift; sourceTree = "<group>"; };
 		632D2FB92821E64500441152 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		632D2FBB2821E84900441152 /* MovieDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsModel.swift; sourceTree = "<group>"; };
+		632D2FBD2821E88700441152 /* MovieNowPlayingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNowPlayingModel.swift; sourceTree = "<group>"; };
+		632D2FBF2821E8A500441152 /* MovieUpComingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUpComingModel.swift; sourceTree = "<group>"; };
+		632D2FC12821E8DE00441152 /* MovieDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailRequest.swift; sourceTree = "<group>"; };
+		632D2FC32821EA2F00441152 /* MovieNowPlayingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNowPlayingRequest.swift; sourceTree = "<group>"; };
+		632D2FC52821EB1500441152 /* MovieUpcomingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUpcomingRequest.swift; sourceTree = "<group>"; };
 		633CC23A28216C2600252191 /* ChallengeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633CC23D28216C2600252191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		633CC23F28216C2600252191 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +196,9 @@
 		637CDEA22821DC5C00B210D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				632D2FBB2821E84900441152 /* MovieDetailsModel.swift */,
+				632D2FBD2821E88700441152 /* MovieNowPlayingModel.swift */,
+				632D2FBF2821E8A500441152 /* MovieUpComingModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +206,9 @@
 		637CDEA32821DC5F00B210D0 /* Request */ = {
 			isa = PBXGroup;
 			children = (
+				632D2FC12821E8DE00441152 /* MovieDetailRequest.swift */,
+				632D2FC32821EA2F00441152 /* MovieNowPlayingRequest.swift */,
+				632D2FC52821EB1500441152 /* MovieUpcomingRequest.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -264,17 +282,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632D2FC42821EA2F00441152 /* MovieNowPlayingRequest.swift in Sources */,
 				632D2FB82821E60800441152 /* DecodableResponseRequest.swift in Sources */,
+				632D2FC62821EB1500441152 /* MovieUpcomingRequest.swift in Sources */,
 				632D2FB02821E3BD00441152 /* RequestEncoding.swift in Sources */,
 				633CC25A282170D000252191 /* HomeBuilder.swift in Sources */,
 				633CC24228216C2600252191 /* HomeVC.swift in Sources */,
 				632D2FB42821E41E00441152 /* APIDecodableResponseRequest.swift in Sources */,
 				632D2FAE2821E32500441152 /* RequestProtocol.swift in Sources */,
+				632D2FC02821E8A500441152 /* MovieUpComingModel.swift in Sources */,
 				632D2FB62821E55D00441152 /* DataProviderProtocol.swift in Sources */,
 				633CC25328216E7A00252191 /* AppRouteContainer.swift in Sources */,
 				633CC23E28216C2600252191 /* AppDelegate.swift in Sources */,
+				632D2FBC2821E84900441152 /* MovieDetailsModel.swift in Sources */,
 				633CC25528216EB000252191 /* AppRouter.swift in Sources */,
 				632D2FB22821E3DB00441152 /* RequestMethod.swift in Sources */,
+				632D2FC22821E8DE00441152 /* MovieDetailRequest.swift in Sources */,
+				632D2FBE2821E88700441152 /* MovieNowPlayingModel.swift in Sources */,
 				632D2FBA2821E64500441152 /* Typealias.swift in Sources */,
 				633CC24028216C2600252191 /* SceneDelegate.swift in Sources */,
 			);
