@@ -21,7 +21,6 @@
 		632D2FC42821EA2F00441152 /* MovieNowPlayingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FC32821EA2F00441152 /* MovieNowPlayingRequest.swift */; };
 		632D2FC62821EB1500441152 /* MovieUpcomingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FC52821EB1500441152 /* MovieUpcomingRequest.swift */; };
 		633CC23E28216C2600252191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC23D28216C2600252191 /* AppDelegate.swift */; };
-		633CC24028216C2600252191 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC23F28216C2600252191 /* SceneDelegate.swift */; };
 		633CC24228216C2600252191 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC24128216C2600252191 /* HomeVC.swift */; };
 		633CC24728216C2700252191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633CC24628216C2700252191 /* Assets.xcassets */; };
 		633CC25328216E7A00252191 /* AppRouteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC25228216E7A00252191 /* AppRouteContainer.swift */; };
@@ -43,12 +42,11 @@
 		632D2FC12821E8DE00441152 /* MovieDetailRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailRequest.swift; sourceTree = "<group>"; };
 		632D2FC32821EA2F00441152 /* MovieNowPlayingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNowPlayingRequest.swift; sourceTree = "<group>"; };
 		632D2FC52821EB1500441152 /* MovieUpcomingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUpcomingRequest.swift; sourceTree = "<group>"; };
+		632D2FC8282202DB00441152 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		633CC23A28216C2600252191 /* ChallengeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633CC23D28216C2600252191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		633CC23F28216C2600252191 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		633CC24128216C2600252191 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		633CC24628216C2700252191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		633CC24B28216C2700252191 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		633CC25228216E7A00252191 /* AppRouteContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouteContainer.swift; sourceTree = "<group>"; };
 		633CC25428216EB000252191 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		633CC259282170D000252191 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
@@ -65,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		632D2FC72821FE8F00441152 /* Routing */ = {
+			isa = PBXGroup;
+			children = (
+				633CC25428216EB000252191 /* AppRouter.swift */,
+			);
+			path = Routing;
+			sourceTree = "<group>";
+		};
 		633CC23128216C2600252191 = {
 			isa = PBXGroup;
 			children = (
@@ -88,7 +94,6 @@
 				633CC25B282184E400252191 /* MovieProject */,
 				633CC25D2821851000252191 /* UIComponents */,
 				633CC25E2821852700252191 /* Utilities */,
-				633CC23F28216C2600252191 /* SceneDelegate.swift */,
 			);
 			path = ChallengeApp;
 			sourceTree = "<group>";
@@ -98,7 +103,6 @@
 			children = (
 				633CC23D28216C2600252191 /* AppDelegate.swift */,
 				633CC25228216E7A00252191 /* AppRouteContainer.swift */,
-				633CC25428216EB000252191 /* AppRouter.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -131,6 +135,7 @@
 		633CC25B282184E400252191 /* MovieProject */ = {
 			isa = PBXGroup;
 			children = (
+				632D2FC72821FE8F00441152 /* Routing */,
 				637CDEA02821DBA400B210D0 /* Configurations */,
 				637CDE9F2821DB7500B210D0 /* Resources */,
 				633CC2562821707300252191 /* Scenes */,
@@ -142,10 +147,10 @@
 		633CC25C282184F000252191 /* DataProvider */ = {
 			isa = PBXGroup;
 			children = (
+				632D2FC8282202DB00441152 /* Info.plist */,
 				637CDEA12821DC5800B210D0 /* Core */,
 				637CDEA22821DC5C00B210D0 /* Model */,
 				637CDEA32821DC5F00B210D0 /* Request */,
-				633CC24B28216C2700252191 /* Info.plist */,
 			);
 			path = DataProvider;
 			sourceTree = "<group>";
@@ -300,7 +305,6 @@
 				632D2FC22821E8DE00441152 /* MovieDetailRequest.swift in Sources */,
 				632D2FBE2821E88700441152 /* MovieNowPlayingModel.swift in Sources */,
 				632D2FBA2821E64500441152 /* Typealias.swift in Sources */,
-				633CC24028216C2600252191 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,6 +430,7 @@
 		633CC24F28216C2700252191 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -453,6 +458,7 @@
 		633CC25028216C2700252191 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
