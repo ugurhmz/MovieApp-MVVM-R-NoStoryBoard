@@ -20,12 +20,19 @@
 		632D2FC22821E8DE00441152 /* MovieDetailRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FC12821E8DE00441152 /* MovieDetailRequest.swift */; };
 		632D2FC42821EA2F00441152 /* MovieNowPlayingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FC32821EA2F00441152 /* MovieNowPlayingRequest.swift */; };
 		632D2FC62821EB1500441152 /* MovieUpcomingRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FC52821EB1500441152 /* MovieUpcomingRequest.swift */; };
+		632D2FCF282206D800441152 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FCE282206D800441152 /* Animator.swift */; };
+		632D2FD1282206EE00441152 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FD0282206EE00441152 /* Router.swift */; };
+		632D2FD32822071500441152 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FD22822071500441152 /* AppRouter.swift */; };
+		632D2FD8282207EA00441152 /* PushTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FD4282207EA00441152 /* PushTransition.swift */; };
+		632D2FD9282207EA00441152 /* ModalTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FD5282207EA00441152 /* ModalTransition.swift */; };
+		632D2FDA282207EA00441152 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FD6282207EA00441152 /* Transition.swift */; };
+		632D2FDB282207EA00441152 /* PlaceOnWindowTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FD7282207EA00441152 /* PlaceOnWindowTransition.swift */; };
+		632D2FDD28220A3000441152 /* WalkThroughRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FDC28220A3000441152 /* WalkThroughRoute.swift */; };
+		632D2FDF28220A4E00441152 /* WalkThroughRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FDE28220A4E00441152 /* WalkThroughRouter.swift */; };
+		632D2FE128220AAD00441152 /* MainTabBarRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632D2FE028220AAD00441152 /* MainTabBarRoute.swift */; };
 		633CC23E28216C2600252191 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC23D28216C2600252191 /* AppDelegate.swift */; };
 		633CC24228216C2600252191 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC24128216C2600252191 /* HomeVC.swift */; };
 		633CC24728216C2700252191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633CC24628216C2700252191 /* Assets.xcassets */; };
-		633CC25328216E7A00252191 /* AppRouteContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC25228216E7A00252191 /* AppRouteContainer.swift */; };
-		633CC25528216EB000252191 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC25428216EB000252191 /* AppRouter.swift */; };
-		633CC25A282170D000252191 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633CC259282170D000252191 /* HomeBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,13 +50,20 @@
 		632D2FC32821EA2F00441152 /* MovieNowPlayingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieNowPlayingRequest.swift; sourceTree = "<group>"; };
 		632D2FC52821EB1500441152 /* MovieUpcomingRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieUpcomingRequest.swift; sourceTree = "<group>"; };
 		632D2FC8282202DB00441152 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		632D2FCE282206D800441152 /* Animator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
+		632D2FD0282206EE00441152 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		632D2FD22822071500441152 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		632D2FD4282207EA00441152 /* PushTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushTransition.swift; sourceTree = "<group>"; };
+		632D2FD5282207EA00441152 /* ModalTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalTransition.swift; sourceTree = "<group>"; };
+		632D2FD6282207EA00441152 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		632D2FD7282207EA00441152 /* PlaceOnWindowTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceOnWindowTransition.swift; sourceTree = "<group>"; };
+		632D2FDC28220A3000441152 /* WalkThroughRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughRoute.swift; sourceTree = "<group>"; };
+		632D2FDE28220A4E00441152 /* WalkThroughRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughRouter.swift; sourceTree = "<group>"; };
+		632D2FE028220AAD00441152 /* MainTabBarRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarRoute.swift; sourceTree = "<group>"; };
 		633CC23A28216C2600252191 /* ChallengeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChallengeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		633CC23D28216C2600252191 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		633CC24128216C2600252191 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		633CC24628216C2700252191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		633CC25228216E7A00252191 /* AppRouteContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouteContainer.swift; sourceTree = "<group>"; };
-		633CC25428216EB000252191 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
-		633CC259282170D000252191 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,9 +80,49 @@
 		632D2FC72821FE8F00441152 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
-				633CC25428216EB000252191 /* AppRouter.swift */,
+				632D2FCD282206C800441152 /* Transitions */,
+				632D2FCB282206B600441152 /* Routers */,
+				632D2FCA282206B000441152 /* Core */,
 			);
 			path = Routing;
+			sourceTree = "<group>";
+		};
+		632D2FCA282206B000441152 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				632D2FCE282206D800441152 /* Animator.swift */,
+				632D2FD0282206EE00441152 /* Router.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		632D2FCB282206B600441152 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				632D2FD22822071500441152 /* AppRouter.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		632D2FCD282206C800441152 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				632D2FD5282207EA00441152 /* ModalTransition.swift */,
+				632D2FD7282207EA00441152 /* PlaceOnWindowTransition.swift */,
+				632D2FD4282207EA00441152 /* PushTransition.swift */,
+				632D2FD6282207EA00441152 /* Transition.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		632D2FE228220C3500441152 /* WalkThrough */ = {
+			isa = PBXGroup;
+			children = (
+				632D2FDC28220A3000441152 /* WalkThroughRoute.swift */,
+				632D2FDE28220A4E00441152 /* WalkThroughRouter.swift */,
+				632D2FE028220AAD00441152 /* MainTabBarRoute.swift */,
+			);
+			path = WalkThrough;
 			sourceTree = "<group>";
 		};
 		633CC23128216C2600252191 = {
@@ -102,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				633CC23D28216C2600252191 /* AppDelegate.swift */,
-				633CC25228216E7A00252191 /* AppRouteContainer.swift */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -110,6 +163,7 @@
 		633CC2562821707300252191 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				632D2FE228220C3500441152 /* WalkThrough */,
 				633CC2582821708F00252191 /* Home */,
 				633CC2572821707C00252191 /* Cell */,
 			);
@@ -127,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				633CC24128216C2600252191 /* HomeVC.swift */,
-				633CC259282170D000252191 /* HomeBuilder.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -287,23 +340,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				632D2FE128220AAD00441152 /* MainTabBarRoute.swift in Sources */,
 				632D2FC42821EA2F00441152 /* MovieNowPlayingRequest.swift in Sources */,
+				632D2FDF28220A4E00441152 /* WalkThroughRouter.swift in Sources */,
 				632D2FB82821E60800441152 /* DecodableResponseRequest.swift in Sources */,
+				632D2FD8282207EA00441152 /* PushTransition.swift in Sources */,
 				632D2FC62821EB1500441152 /* MovieUpcomingRequest.swift in Sources */,
+				632D2FCF282206D800441152 /* Animator.swift in Sources */,
 				632D2FB02821E3BD00441152 /* RequestEncoding.swift in Sources */,
-				633CC25A282170D000252191 /* HomeBuilder.swift in Sources */,
+				632D2FDA282207EA00441152 /* Transition.swift in Sources */,
 				633CC24228216C2600252191 /* HomeVC.swift in Sources */,
 				632D2FB42821E41E00441152 /* APIDecodableResponseRequest.swift in Sources */,
 				632D2FAE2821E32500441152 /* RequestProtocol.swift in Sources */,
 				632D2FC02821E8A500441152 /* MovieUpComingModel.swift in Sources */,
+				632D2FDB282207EA00441152 /* PlaceOnWindowTransition.swift in Sources */,
 				632D2FB62821E55D00441152 /* DataProviderProtocol.swift in Sources */,
-				633CC25328216E7A00252191 /* AppRouteContainer.swift in Sources */,
+				632D2FD32822071500441152 /* AppRouter.swift in Sources */,
+				632D2FD1282206EE00441152 /* Router.swift in Sources */,
 				633CC23E28216C2600252191 /* AppDelegate.swift in Sources */,
 				632D2FBC2821E84900441152 /* MovieDetailsModel.swift in Sources */,
-				633CC25528216EB000252191 /* AppRouter.swift in Sources */,
+				632D2FD9282207EA00441152 /* ModalTransition.swift in Sources */,
 				632D2FB22821E3DB00441152 /* RequestMethod.swift in Sources */,
 				632D2FC22821E8DE00441152 /* MovieDetailRequest.swift in Sources */,
 				632D2FBE2821E88700441152 /* MovieNowPlayingModel.swift in Sources */,
+				632D2FDD28220A3000441152 /* WalkThroughRoute.swift in Sources */,
 				632D2FBA2821E64500441152 /* Typealias.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
