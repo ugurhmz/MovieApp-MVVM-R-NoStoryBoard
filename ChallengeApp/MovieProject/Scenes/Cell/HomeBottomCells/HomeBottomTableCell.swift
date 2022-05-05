@@ -19,7 +19,6 @@ class HomeBottomTableCell: UITableViewCell {
         return iv
     }()
     
-  
     // movie title
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -30,7 +29,6 @@ class HomeBottomTableCell: UITableViewCell {
         label.lineBreakMode = .byWordWrapping
         return label
     }()
-        
         
     // movie definition
     private let definitionLabel: UILabel = {
@@ -50,7 +48,6 @@ class HomeBottomTableCell: UITableViewCell {
         label.textColor = .darkGray
         return label
     }()
-        
     
     // goToDetailIcon
     private let goToDetailIcon: UIImageView = {
@@ -73,12 +70,10 @@ class HomeBottomTableCell: UITableViewCell {
     
     private func setupViews(){
         [imgView, titleLabel, definitionLabel, releaseDateLabel, goToDetailIcon].forEach{ contentView.addSubview($0)}
-        
     }
-
 }
 
-//MARK: -
+//MARK: - Constraints
 extension HomeBottomTableCell {
     private func setConstraints(){
         

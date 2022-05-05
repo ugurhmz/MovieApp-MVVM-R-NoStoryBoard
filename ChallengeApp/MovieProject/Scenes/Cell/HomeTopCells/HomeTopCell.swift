@@ -27,8 +27,8 @@ class HomeTopCell: UICollectionViewCell {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
         pageControl.numberOfPages = 5
-        pageControl.currentPageIndicatorTintColor = .black
-        pageControl.pageIndicatorTintColor = .yellow
+        pageControl.currentPageIndicatorTintColor = .white
+        pageControl.pageIndicatorTintColor = .darkGray
         return pageControl
     }()
     
