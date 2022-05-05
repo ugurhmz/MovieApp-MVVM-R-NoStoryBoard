@@ -56,10 +56,7 @@ extension HomeBottomCell: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeBottomTableCell.identifier, for: indexPath) as? HomeBottomTableCell else {
             return UITableViewCell()
         }
-        cell.backgroundColor = UIColor(hue: drand48(),
-                                       saturation: 1,
-                                       brightness: 1,
-                                       alpha: 1)
+        cell.backgroundColor = .white
        return cell
     }
        
