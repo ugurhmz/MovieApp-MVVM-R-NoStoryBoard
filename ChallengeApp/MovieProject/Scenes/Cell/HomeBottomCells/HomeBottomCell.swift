@@ -57,6 +57,10 @@ extension HomeBottomCell: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.backgroundColor = .white
+        
+        cell.layer.borderWidth = 0.5
+               cell.layer.borderColor = UIColor.lightGray.cgColor
+        
        return cell
     }
        

@@ -81,14 +81,14 @@ extension HomeBottomTableCell {
                        leading: contentView.leadingAnchor,
                        bottom: contentView.bottomAnchor,
                        trailing: nil,
-                       padding: .init(top: 5, left: 20, bottom: 15, right: 5),
+                       padding: .init(top: 15, left: 20, bottom: 15, right: 5),
                        size: .init(width: 120, height: 0))
   
         titleLabel.anchor(top: contentView.topAnchor,
                           leading: imgView.trailingAnchor,
                           bottom: nil,
                           trailing: contentView.trailingAnchor,
-                          padding: .init(top: 12, left: 8, bottom: 0, right: 35))
+                          padding: .init(top: 20, left: 8, bottom: 0, right: 35))
         
         definitionLabel.anchor(top: titleLabel.bottomAnchor,
                                leading: imgView.trailingAnchor,
