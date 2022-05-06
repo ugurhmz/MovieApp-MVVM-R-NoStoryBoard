@@ -23,7 +23,7 @@ public extension APIDecodableResponseRequest {
 //MARK: - url
 public extension APIDecodableResponseRequest {
     var url: String {
-        return "//API GELECEK BURAYA"  //+ path
+        return "https://api.themoviedb.org/3" + path
     }
 }
 
