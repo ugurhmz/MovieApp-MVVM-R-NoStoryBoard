@@ -7,11 +7,10 @@
 
 import UIKit
 
-class BaseViewController<V: BaseViewModelProtocol>: UIViewController,BaseViewController.LoadingProtocols{
+class BaseViewController<V: BaseViewModelProtocol>: UIViewController, BaseViewController.LoadingProtocols {
+    
     typealias LoadingProtocols = LoadingProtocol
 
-
-    
     var viewModel: V
     
     init(viewModel: V) {

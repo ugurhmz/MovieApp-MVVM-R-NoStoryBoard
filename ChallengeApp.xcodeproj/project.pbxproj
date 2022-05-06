@@ -43,6 +43,9 @@
 		6380AD362825961000618251 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380AD352825961000618251 /* BaseViewModel.swift */; };
 		6380AD382825966500618251 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380AD372825966500618251 /* BaseViewController.swift */; };
 		6380AD3A282596E200618251 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380AD39282596E200618251 /* MainNavigationController.swift */; };
+		6380AD3C282597A400618251 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380AD3B282597A400618251 /* HomeViewModel.swift */; };
+		6380AD3F2825A74900618251 /* HomeTopCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380AD3E2825A74900618251 /* HomeTopCellModel.swift */; };
+		6380AD412825AB0100618251 /* HomeSliderCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380AD402825AB0100618251 /* HomeSliderCellModel.swift */; };
 		63D6C7392824C6A800D34EB9 /* APIDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C7382824C6A800D34EB9 /* APIDataProvider.swift */; };
 		63D6C73B2824C73100D34EB9 /* APIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C73A2824C73100D34EB9 /* APIRequestInterceptor.swift */; };
 		63D6C7402824C9DF00D34EB9 /* APIRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C73F2824C9DF00D34EB9 /* APIRequestAdapter.swift */; };
@@ -93,6 +96,9 @@
 		6380AD352825961000618251 /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		6380AD372825966500618251 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		6380AD39282596E200618251 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		6380AD3B282597A400618251 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		6380AD3E2825A74900618251 /* HomeTopCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopCellModel.swift; sourceTree = "<group>"; };
+		6380AD402825AB0100618251 /* HomeSliderCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSliderCellModel.swift; sourceTree = "<group>"; };
 		63D6C7382824C6A800D34EB9 /* APIDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataProvider.swift; sourceTree = "<group>"; };
 		63D6C73A2824C73100D34EB9 /* APIRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestInterceptor.swift; sourceTree = "<group>"; };
 		63D6C73F2824C9DF00D34EB9 /* APIRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestAdapter.swift; sourceTree = "<group>"; };
@@ -231,7 +237,6 @@
 				6380AD34282595FE00618251 /* Base */,
 				632D2FE228220C3500441152 /* WalkThrough */,
 				633CC2582821708F00252191 /* Home */,
-				633CC2572821707C00252191 /* Cell */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				633CC24128216C2600252191 /* HomeVC.swift */,
+				6380AD3B282597A400618251 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 		633CC25D2821851000252191 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				633CC2572821707C00252191 /* Cell */,
 				63D6C81B2824F6A400D34EB9 /* Loading */,
 			);
 			path = UIComponents;
@@ -346,8 +353,10 @@
 		6380600C28235A55006A0308 /* HomeTopCells */ = {
 			isa = PBXGroup;
 			children = (
+				6380AD3E2825A74900618251 /* HomeTopCellModel.swift */,
 				6380600828235211006A0308 /* HomeTopCell.swift */,
 				6380600E28235B03006A0308 /* HomeSliderCell.swift */,
+				6380AD402825AB0100618251 /* HomeSliderCellModel.swift */,
 			);
 			path = HomeTopCells;
 			sourceTree = "<group>";
@@ -532,6 +541,8 @@
 				632D2FB42821E41E00441152 /* APIDecodableResponseRequest.swift in Sources */,
 				632D2FAE2821E32500441152 /* RequestProtocol.swift in Sources */,
 				632D2FC02821E8A500441152 /* MovieUpComingModel.swift in Sources */,
+				6380AD3F2825A74900618251 /* HomeTopCellModel.swift in Sources */,
+				6380AD412825AB0100618251 /* HomeSliderCellModel.swift in Sources */,
 				63D6C7392824C6A800D34EB9 /* APIDataProvider.swift in Sources */,
 				632D2FDB282207EA00441152 /* PlaceOnWindowTransition.swift in Sources */,
 				63D6C73B2824C73100D34EB9 /* APIRequestInterceptor.swift in Sources */,
@@ -553,6 +564,7 @@
 				632D2FDD28220A3000441152 /* WalkThroughRoute.swift in Sources */,
 				632D2FBA2821E64500441152 /* Typealias.swift in Sources */,
 				63D6C7402824C9DF00D34EB9 /* APIRequestAdapter.swift in Sources */,
+				6380AD3C282597A400618251 /* HomeViewModel.swift in Sources */,
 				632D2FE82822101D00441152 /* Extension+UIView.swift in Sources */,
 				63D6C7442824CC1800D34EB9 /* DataProvider.swift in Sources */,
 				6380600928235211006A0308 /* HomeTopCell.swift in Sources */,
