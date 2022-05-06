@@ -42,13 +42,15 @@
 		6380601128235E2E006A0308 /* HomeBottomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380601028235E2E006A0308 /* HomeBottomTableCell.swift */; };
 		63D6C7392824C6A800D34EB9 /* APIDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C7382824C6A800D34EB9 /* APIDataProvider.swift */; };
 		63D6C73B2824C73100D34EB9 /* APIRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C73A2824C73100D34EB9 /* APIRequestInterceptor.swift */; };
-		63D6C73E2824C7E200D34EB9 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 63D6C73D2824C7E200D34EB9 /* Alamofire */; };
 		63D6C7402824C9DF00D34EB9 /* APIRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C73F2824C9DF00D34EB9 /* APIRequestAdapter.swift */; };
 		63D6C7422824CB8B00D34EB9 /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C7412824CB8B00D34EB9 /* APILogger.swift */; };
 		63D6C7442824CC1800D34EB9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C7432824CC1800D34EB9 /* DataProvider.swift */; };
+		AB15619003A069915261F8E4 /* Pods_ChallengeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DE26D4CED025A6F2E52399 /* Pods_ChallengeApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28DE26D4CED025A6F2E52399 /* Pods_ChallengeApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ChallengeApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		305B8993C504094450BFA9E3 /* Pods-ChallengeApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeApp.release.xcconfig"; path = "Target Support Files/Pods-ChallengeApp/Pods-ChallengeApp.release.xcconfig"; sourceTree = "<group>"; };
 		632D2FAD2821E32500441152 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		632D2FAF2821E3BD00441152 /* RequestEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEncoding.swift; sourceTree = "<group>"; };
 		632D2FB12821E3DB00441152 /* RequestMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMethod.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		63D6C73F2824C9DF00D34EB9 /* APIRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestAdapter.swift; sourceTree = "<group>"; };
 		63D6C7412824CB8B00D34EB9 /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
 		63D6C7432824CC1800D34EB9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		E570A6049AF046DD12BBF62E /* Pods-ChallengeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeApp.debug.xcconfig"; path = "Target Support Files/Pods-ChallengeApp/Pods-ChallengeApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,13 +99,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63D6C73E2824C7E200D34EB9 /* Alamofire in Frameworks */,
+				AB15619003A069915261F8E4 /* Pods_ChallengeApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		31417F8D7CECC7399E667B8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E570A6049AF046DD12BBF62E /* Pods-ChallengeApp.debug.xcconfig */,
+				305B8993C504094450BFA9E3 /* Pods-ChallengeApp.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		632D2FC72821FE8F00441152 /* Routing */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +185,8 @@
 			children = (
 				633CC23C28216C2600252191 /* ChallengeApp */,
 				633CC23B28216C2600252191 /* Products */,
+				31417F8D7CECC7399E667B8D /* Pods */,
+				646FB0A9EFB17D414D7B67FA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -349,6 +363,14 @@
 			path = DataProvider;
 			sourceTree = "<group>";
 		};
+		646FB0A9EFB17D414D7B67FA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28DE26D4CED025A6F2E52399 /* Pods_ChallengeApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -356,9 +378,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 633CC24E28216C2700252191 /* Build configuration list for PBXNativeTarget "ChallengeApp" */;
 			buildPhases = (
+				052A99B62ED0AEFFFE66EDCB /* [CP] Check Pods Manifest.lock */,
 				633CC23628216C2600252191 /* Sources */,
 				633CC23728216C2600252191 /* Frameworks */,
 				633CC23828216C2600252191 /* Resources */,
+				3283A3DF3A1360D2D127B9BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -366,7 +390,6 @@
 			);
 			name = ChallengeApp;
 			packageProductDependencies = (
-				63D6C73D2824C7E200D34EB9 /* Alamofire */,
 			);
 			productName = ChallengeApp;
 			productReference = 633CC23A28216C2600252191 /* ChallengeApp.app */;
@@ -397,7 +420,6 @@
 			);
 			mainGroup = 633CC23128216C2600252191;
 			packageReferences = (
-				63D6C73C2824C7E200D34EB9 /* XCRemoteSwiftPackageReference "Alamofire" */,
 			);
 			productRefGroup = 633CC23B28216C2600252191 /* Products */;
 			projectDirPath = "";
@@ -418,6 +440,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		052A99B62ED0AEFFFE66EDCB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ChallengeApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3283A3DF3A1360D2D127B9BC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChallengeApp/Pods-ChallengeApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ChallengeApp/Pods-ChallengeApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ChallengeApp/Pods-ChallengeApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		633CC23628216C2600252191 /* Sources */ = {
@@ -585,6 +649,7 @@
 		};
 		633CC24F28216C2700252191 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E570A6049AF046DD12BBF62E /* Pods-ChallengeApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -613,6 +678,7 @@
 		};
 		633CC25028216C2700252191 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 305B8993C504094450BFA9E3 /* Pods-ChallengeApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -661,25 +727,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		63D6C73C2824C7E200D34EB9 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		63D6C73D2824C7E200D34EB9 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 63D6C73C2824C7E200D34EB9 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 633CC23228216C2600252191 /* Project object */;
 }
