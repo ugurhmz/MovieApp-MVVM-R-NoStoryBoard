@@ -45,6 +45,7 @@
 		63D6C7402824C9DF00D34EB9 /* APIRequestAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C73F2824C9DF00D34EB9 /* APIRequestAdapter.swift */; };
 		63D6C7422824CB8B00D34EB9 /* APILogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C7412824CB8B00D34EB9 /* APILogger.swift */; };
 		63D6C7442824CC1800D34EB9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C7432824CC1800D34EB9 /* DataProvider.swift */; };
+		63D6C81D2824F6B300D34EB9 /* LoadingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D6C81C2824F6B300D34EB9 /* LoadingProtocol.swift */; };
 		AB15619003A069915261F8E4 /* Pods_ChallengeApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28DE26D4CED025A6F2E52399 /* Pods_ChallengeApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		63D6C73F2824C9DF00D34EB9 /* APIRequestAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestAdapter.swift; sourceTree = "<group>"; };
 		63D6C7412824CB8B00D34EB9 /* APILogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APILogger.swift; sourceTree = "<group>"; };
 		63D6C7432824CC1800D34EB9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		63D6C81C2824F6B300D34EB9 /* LoadingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingProtocol.swift; sourceTree = "<group>"; };
 		E570A6049AF046DD12BBF62E /* Pods-ChallengeApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChallengeApp.debug.xcconfig"; path = "Target Support Files/Pods-ChallengeApp/Pods-ChallengeApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -270,6 +272,7 @@
 		633CC25D2821851000252191 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				63D6C81B2824F6A400D34EB9 /* Loading */,
 			);
 			path = UIComponents;
 			sourceTree = "<group>";
@@ -361,6 +364,14 @@
 				63D6C7432824CC1800D34EB9 /* DataProvider.swift */,
 			);
 			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		63D6C81B2824F6A400D34EB9 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				63D6C81C2824F6B300D34EB9 /* LoadingProtocol.swift */,
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 		646FB0A9EFB17D414D7B67FA /* Frameworks */ = {
@@ -508,6 +519,7 @@
 				63D6C73B2824C73100D34EB9 /* APIRequestInterceptor.swift in Sources */,
 				632D2FB62821E55D00441152 /* DataProviderProtocol.swift in Sources */,
 				632D2FD32822071500441152 /* AppRouter.swift in Sources */,
+				63D6C81D2824F6B300D34EB9 /* LoadingProtocol.swift in Sources */,
 				632D2FD1282206EE00441152 /* Router.swift in Sources */,
 				633CC23E28216C2600252191 /* AppDelegate.swift in Sources */,
 				632D2FBC2821E84900441152 /* MovieDetailsModel.swift in Sources */,
