@@ -34,7 +34,7 @@ class BaseViewModel<R: Router>: BaseViewModelProtocol {
     let router: R
     let dataProvider: DataProviderProtocol
     
-    init(router: R, dataProvider: DataProviderProtocol = apiDataProvider as! DataProviderProtocol) {
+    init(router: R, dataProvider: DataProviderProtocol = apiDataProvider) {
         self.router = router
         self.dataProvider = dataProvider
     }

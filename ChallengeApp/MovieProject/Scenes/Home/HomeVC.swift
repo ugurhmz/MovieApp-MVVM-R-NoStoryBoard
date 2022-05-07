@@ -12,7 +12,7 @@ enum Sections: Int {
     case UpComingMovies = 1
 }
 
-class HomeVC: UIViewController {
+class HomeVC: BaseViewController<HomeViewModel> {
    
     private let homeCollectionView: UICollectionView = {
         let layout =  UICollectionViewFlowLayout()
@@ -71,6 +71,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        
         // topcell
         switch indexPath.section {
         case Sections.NowPlayinsMovies.rawValue:
@@ -79,6 +80,8 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             }
             topCell.backgroundColor = .blue
             return topCell
+            
+            
             
         // bottom table cell
         case Sections.UpComingMovies.rawValue:
