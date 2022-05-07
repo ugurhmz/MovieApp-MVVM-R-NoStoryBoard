@@ -33,6 +33,10 @@ class HomeVC: BaseViewController<HomeViewModel> {
         setupViews()
         setConstraints()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.fetchUpComingMovies(page: 1)
+    }
     
     private func setupViews(){
         view.addSubview(homeCollectionView)

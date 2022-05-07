@@ -27,7 +27,7 @@ protocol HomeViewModelProtocol: HomeViewModelDataSource, HomeViewModelEventSourc
 //MARK: -
 final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
     
-    
+ 
     var isLoading: Bool = false
     var increasePage: Int = 1
     var homeTopCell: HomeTopCellProtocol?
@@ -67,4 +67,21 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
         }
     }
    
+}
+
+
+//MARK: - Fetch Data
+extension HomeViewModel {
+    func fetchUpComingMovies(page: Int?){
+            let request = MovieUpcomingRequest(page: page ?? 1)
+            dataProvider.request(for: request) {[weak self] result in
+                guard let self = self else {return}
+                switch result {
+                case .success(let response):
+                    print(response?.results)
+                case .failure(let error) :
+                    print(error)
+                }
+            }
+   }
 }

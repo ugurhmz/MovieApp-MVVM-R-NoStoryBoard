@@ -7,7 +7,7 @@
 
 import Alamofire
 
-public struct APIDataProvider{
+public struct APIDataProvider: DataProviderProtocol{
     private let interceptor: RequestInterceptor?
         private let session: Session
         
