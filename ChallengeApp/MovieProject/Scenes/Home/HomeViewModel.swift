@@ -34,7 +34,7 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
     var homeBottomItemsArr: [HomeBottomTableCellProtocol]?
     var reloadData: VoidClosure?
     var endRefreshing: VoidClosure?
-    
+    let imgPath: String = "https://image.tmdb.org/t/p/original"
     
     init(router: HomeRouter) {
         super.init(router: router)
@@ -72,26 +72,49 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
 
 //MARK: - Fetch Data
 extension HomeViewModel {
+    func fetchNowPlayingMovies(){
+        let request = MovieNowPlayingReuqest()
+       dataProvider.request(for: request) { [weak self] result in
+            guard let strongSelf = self else { return }
+            switch result {
+            case .success(let response):
+                guard let nowPlayingArr = response?.results?.map({ item in
+                    return HomeSliderCellModel(image:URL(string: strongSelf.imgPath + (item.poster_path ?? "")) ,
+                                               title: item.title,
+                                               definition: item.overview,
+                                               totalPagesIndicator: response?.results?.count)
+                }) else { return}
+                strongSelf.homeTopCell = HomeTopCellModel(homeHeaderCellValues: nowPlayingArr)
+                strongSelf.endRefreshing?()
+                strongSelf.reloadData?()
+            case .failure(let error):
+                strongSelf.endRefreshing?()
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
     func fetchUpComingMovies(page: Int?){
             let request = MovieUpcomingRequest(page: page ?? 1)
-            dataProvider.request(for: request) {[weak self] result in
-                guard let self = self else {return}
+            dataProvider.request(for: request) { [weak self] result in
+                guard let strongSelf = self else {return}
                 switch result {
                 case .success(let response):
                     guard let movieArr = response?.results?.map({ item in
                         return HomeBottomTableCellModel(id: item.id,
-                                                        imageUrl: URL(string:"https://image.tmdb.org/t/p/original" + (item.posterPath ?? "")),
+                                                        imageUrl: URL(string: strongSelf.imgPath + (item.posterPath ?? "")),
                                                         title: item.title,
                                                         mvDefinition: item.overview,
                                                         releaseDate: item.releaseDate,
                                                         page: response?.page)
                     }) else { return}
-                    self.homeBottomItemsArr = movieArr
-                    self.endRefreshing?()
-                    self.reloadData?()
+                    strongSelf.homeBottomItemsArr = movieArr
+                    strongSelf.endRefreshing?()
+                    strongSelf.reloadData?()
                     
                 case .failure(let error) :
-                    print(error)
+                    self?.endRefreshing?()
+                    print(error.localizedDescription)
                 }
             }
    }

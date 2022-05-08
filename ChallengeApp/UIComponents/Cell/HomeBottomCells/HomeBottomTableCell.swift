@@ -83,6 +83,9 @@ extension HomeBottomTableCell {
         }
         self.titleLabel.text = model.movieTitle
         self.imgView.kf.setImage(with: movieImageUrl)
+        self.definitionLabel.text = model.movieDefinition
+        self.releaseDateLabel.text = model.releaseDateLabel
+       
     }
 }
 

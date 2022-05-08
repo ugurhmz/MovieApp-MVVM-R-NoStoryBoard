@@ -24,18 +24,17 @@ protocol HomeTopCellProtocol: HomeTopCellDataSource, HomeTopCellEventSource {
 
 //MARK: -
 final class HomeTopCellModel: HomeTopCellProtocol {
-  
+    var homeTopCellArr: [HomeSliderCellProtocol] = []
+    
     var numberOfItems: Int {
         return homeTopCellArr.count
     }
-    
-    var homeTopCellArr: [HomeSliderCellProtocol] = []
     
     func cellItem(for indexPath: IndexPath) -> HomeSliderCellProtocol {
         return homeTopCellArr[indexPath.row]
     }
     
-    public init(homeHeaderCellValues: [HomeSliderCellProtocol]){
+    init(homeHeaderCellValues: [HomeSliderCellProtocol]){
         self.homeTopCellArr = homeHeaderCellValues
     }
     

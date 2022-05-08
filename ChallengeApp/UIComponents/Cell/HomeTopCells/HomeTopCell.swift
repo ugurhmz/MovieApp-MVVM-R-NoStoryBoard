@@ -9,6 +9,7 @@ import UIKit
 
 class HomeTopCell: UICollectionViewCell {
     static var  identifier = "HomeTopCell"
+    weak var movieViewModel: HomeTopCellProtocol?
     
     private let topGeneralCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,7 +27,7 @@ class HomeTopCell: UICollectionViewCell {
     private let pageControl: UIPageControl = {
         let pageControl = UIPageControl()
         pageControl.currentPage = 0
-        pageControl.numberOfPages = 5
+        pageControl.numberOfPages = 2
         pageControl.currentPageIndicatorTintColor = .white
         pageControl.pageIndicatorTintColor = .darkGray
         return pageControl
@@ -48,6 +49,17 @@ class HomeTopCell: UICollectionViewCell {
         topGeneralCollection.dataSource = self
     }
 }
+
+
+//MARK: -
+extension HomeTopCell {
+    func setData(movieData: HomeTopCellProtocol) {
+        self.movieViewModel = movieData
+        self.pageControl.numberOfPages = movieData.numberOfItems
+        self.topGeneralCollection.reloadData()
+    }
+}
+
 
 //MARK: - Constraints
 extension HomeTopCell {
@@ -80,7 +92,7 @@ extension HomeTopCell: UICollectionViewDelegate, UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return  self.movieViewModel?.numberOfItems ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -88,11 +100,10 @@ extension HomeTopCell: UICollectionViewDelegate, UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeSliderCell.identifier, for: indexPath) as? HomeSliderCell else {
             return UICollectionViewCell()
         }
-        
-        cell.backgroundColor = UIColor(hue: drand48(),
-                                       saturation: 1,
-                                       brightness: 1,
-                                       alpha: 1)
+         
+        if let cellData = self.movieViewModel?.cellItem(for: indexPath) {
+            cell.fillData(movie: cellData)
+        }
         return cell
     }
 }

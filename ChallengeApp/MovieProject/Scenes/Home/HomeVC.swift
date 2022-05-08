@@ -35,6 +35,7 @@ class HomeVC: BaseViewController<HomeViewModel> {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        viewModel.fetchNowPlayingMovies()
         viewModel.fetchUpComingMovies(page: 1)
     }
     
@@ -44,8 +45,8 @@ class HomeVC: BaseViewController<HomeViewModel> {
         homeCollectionView.dataSource = self
         
         self.viewModel.reloadData = { [weak self] in
-                  guard let self = self else { return }
-                    self.homeCollectionView.reloadData()
+            guard let self = self else { return }
+            self.homeCollectionView.reloadData()
         }
         
     }
@@ -88,7 +89,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             guard let topCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeTopCell.identifier, for: indexPath) as? HomeTopCell else {
                 return UICollectionViewCell()
             }
-            topCell.backgroundColor = .blue
+            
+            if let movieValue = viewModel.homeTopCell {
+                topCell.setData(movieData: movieValue )
+            }
+            
             return topCell
             
             

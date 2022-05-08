@@ -42,7 +42,6 @@ class HomeBottomCell: UICollectionViewCell {
 extension HomeBottomCell {
     func setData(movieValue: [HomeBottomTableCellProtocol]){
         self.cellMovieUpComingList = movieValue
-        
         self.tableView.reloadData()
     }
 }
@@ -78,6 +77,6 @@ extension HomeBottomCell: UITableViewDelegate, UITableViewDataSource {
     }
        
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 150
+       return 165
    }
 }

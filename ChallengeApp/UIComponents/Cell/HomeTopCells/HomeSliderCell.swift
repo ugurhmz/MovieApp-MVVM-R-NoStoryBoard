@@ -5,6 +5,7 @@
 //  Created by ugur-pc on 5.05.2022.
 //
 import UIKit
+import Kingfisher
 
 class HomeSliderCell: UICollectionViewCell {
     static var identifier = "HomeSliderCell"
@@ -71,6 +72,16 @@ class HomeSliderCell: UICollectionViewCell {
         [titleLabel, definitionLabel].forEach{labelsStackView.addArrangedSubview($0)}
     }
 }
+
+//MARK: -
+extension HomeSliderCell {
+    func fillData(movie: HomeSliderCellProtocol) {
+        self.titleLabel.text = movie.movieTitle
+        self.definitionLabel.text = movie.movieDefinition
+        self.movieImageView.kf.setImage(with: movie.moiveImage)
+    }
+}
+
 
 //MARK: - Constraints
 extension HomeSliderCell {
