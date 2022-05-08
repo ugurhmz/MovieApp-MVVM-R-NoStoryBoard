@@ -14,6 +14,7 @@ protocol HomeBottomTableCellDataSource: AnyObject {
     var movieTitle: String? {get}
     var movieDefinition: String? { get }
     var releaseDateLabel: String? { get }
+    var page: Int? { get}
 }
 
 protocol HomeBottomTableCellEventSource: AnyObject {
@@ -31,18 +32,22 @@ final class HomeBottomTableCellModel: HomeBottomTableCellProtocol {
     var movieTitle: String?
     var movieDefinition: String?
     var releaseDateLabel: String?
+    var page: Int?
     
     public init(id: Int? = nil ,
                 imageUrl: URL? = nil,
                 title: String? = nil,
                 mvDefinition: String? = nil,
-                releaseDate: String? = nil )
+                releaseDate: String? = nil ,
+                page: Int? = nil
+    )
     {
         self.movieId = id
         self.moiveImage = imageUrl
         self.movieTitle = title
         self.movieDefinition = mvDefinition
         self.releaseDateLabel = releaseDate
+        self.page = page
         
     }
 }

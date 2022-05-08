@@ -78,7 +78,18 @@ extension HomeViewModel {
                 guard let self = self else {return}
                 switch result {
                 case .success(let response):
-                    print(response?.results)
+                    guard let movieArr = response?.results?.map({ item in
+                        return HomeBottomTableCellModel(id: item.id,
+                                                        imageUrl: URL(string:"https://image.tmdb.org/t/p/original" + (item.posterPath ?? "")),
+                                                        title: item.title,
+                                                        mvDefinition: item.overview,
+                                                        releaseDate: item.releaseDate,
+                                                        page: response?.page)
+                    }) else { return}
+                    self.homeBottomItemsArr = movieArr
+                    self.endRefreshing?()
+                    self.reloadData?()
+                    
                 case .failure(let error) :
                     print(error)
                 }

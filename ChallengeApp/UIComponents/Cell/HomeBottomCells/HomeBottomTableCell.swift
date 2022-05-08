@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeBottomTableCell: UITableViewCell {
     static var identifier = "HomeBottomTableCell"
@@ -70,6 +71,18 @@ class HomeBottomTableCell: UITableViewCell {
     
     private func setupViews(){
         [imgView, titleLabel, definitionLabel, releaseDateLabel, goToDetailIcon].forEach{ contentView.addSubview($0)}
+    }
+}
+
+
+//MARK: - Fill Data
+extension HomeBottomTableCell {
+    func saveModel(model: HomeBottomTableCellProtocol){
+        guard let movieImageUrl = model.moiveImage else {
+            return
+        }
+        self.titleLabel.text = model.movieTitle
+        self.imgView.kf.setImage(with: movieImageUrl)
     }
 }
 

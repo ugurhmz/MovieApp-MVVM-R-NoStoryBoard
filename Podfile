@@ -7,5 +7,5 @@ target 'ChallengeApp' do
 
   # Pods for ChallengeApp
 	pod 'Alamofire', '~> 5.5'
-  	pod 'AlamofireImage', '~> 4.1'
+  	pod 'Kingfisher', '~> 7.0'
 end

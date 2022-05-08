@@ -10,6 +10,7 @@ import UIKit
 class HomeBottomCell: UICollectionViewCell {
 
     static var identifier = "HomeBottomTableCell"
+    var cellMovieUpComingList = [HomeBottomTableCellProtocol]()
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -37,6 +38,16 @@ class HomeBottomCell: UICollectionViewCell {
 
 }
 
+//MARK: -
+extension HomeBottomCell {
+    func setData(movieValue: [HomeBottomTableCellProtocol]){
+        self.cellMovieUpComingList = movieValue
+        
+        self.tableView.reloadData()
+    }
+}
+
+
 //MARK: - Constraints
 extension HomeBottomCell {
     private func setConstraints(){
@@ -48,7 +59,7 @@ extension HomeBottomCell {
 extension HomeBottomCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return 17
+        return cellMovieUpComingList.count
     }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -56,10 +67,12 @@ extension HomeBottomCell: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeBottomTableCell.identifier, for: indexPath) as? HomeBottomTableCell else {
             return UITableViewCell()
         }
+        
+        cell.saveModel(model: cellMovieUpComingList[indexPath.row])
         cell.backgroundColor = .white
         
         cell.layer.borderWidth = 0.5
-               cell.layer.borderColor = UIColor.lightGray.cgColor
+        cell.layer.borderColor = UIColor.lightGray.cgColor
         
        return cell
     }

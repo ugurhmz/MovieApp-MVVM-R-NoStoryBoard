@@ -42,6 +42,12 @@ class HomeVC: BaseViewController<HomeViewModel> {
         view.addSubview(homeCollectionView)
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
+        
+        self.viewModel.reloadData = { [weak self] in
+                  guard let self = self else { return }
+                    self.homeCollectionView.reloadData()
+        }
+        
     }
 }
 
@@ -92,8 +98,11 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             guard let bottomCell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeBottomCell.identifier, for: indexPath) as? HomeBottomCell else {
                 return UICollectionViewCell()
             }
-            
-            bottomCell.backgroundColor = .systemPink
+          
+            if let movieModel = viewModel.homeBottomItemsArr {
+                bottomCell.setData(movieValue: movieModel)
+            }
+
             return bottomCell
         default:
             return UICollectionViewCell()
