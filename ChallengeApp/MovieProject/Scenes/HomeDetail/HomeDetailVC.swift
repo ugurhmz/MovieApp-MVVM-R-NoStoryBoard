@@ -35,7 +35,8 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
             navigationItem.leftBarButtonItem = button
             navBar.setItems([navigationItem], animated: false)
             return navBar
-        }()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(navigationBar)

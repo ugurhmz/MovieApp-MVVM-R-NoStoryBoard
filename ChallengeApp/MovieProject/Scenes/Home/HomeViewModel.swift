@@ -49,14 +49,14 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
         if !self.isLoading {
             self.isLoading = true
             DispatchQueue.global().async {
-                sleep(2)
+                sleep(UInt32(1.2))
                 
                 if self.homeBottomItemsArr?.isEmpty == false {
                     self.increasePage += 1
-                    //self.getMoviesUPComing
+                    self.fetchUpComingMovies(page: self.increasePage)
                 } else {
                     self.increasePage = 1
-                    //get movies
+                    self.fetchUpComingMovies(page: self.increasePage)
                 }
                 
                 DispatchQueue.main.async {
@@ -77,10 +77,10 @@ extension HomeViewModel {
             guard let strongSelf = self else { return }
             switch result {
             case .success(let response):
-                guard let nowPlayingArr = response?.results?.map({ item in
-                    return HomeSliderCellModel(image:URL(string: strongSelf.imgPath + (item.poster_path ?? "")) ,
-                                               title: item.title,
-                                               definition: item.overview,
+                guard let nowPlayingArr = response?.results?.map({
+                    return HomeSliderCellModel(image:URL(string: strongSelf.imgPath + ($0.poster_path ?? "")) ,
+                                               title: $0.title,
+                                               definition: $0.overview,
                                                totalPagesIndicator: response?.results?.count)
                 }) else { return}
                 strongSelf.homeTopCell = HomeTopCellModel(homeHeaderCellValues: nowPlayingArr)
@@ -88,7 +88,8 @@ extension HomeViewModel {
                 strongSelf.reloadData?()
             case .failure(let error):
                 strongSelf.endRefreshing?()
-                print(error.localizedDescription)
+                strongSelf.showWarningToast?(error.localizedDescription)
+                
             }
         }
     }
@@ -99,12 +100,12 @@ extension HomeViewModel {
                 guard let strongSelf = self else {return}
                 switch result {
                 case .success(let response):
-                    guard let movieArr = response?.results?.map({ item in
-                        return HomeBottomTableCellModel(id: item.id,
-                                                        imageUrl: URL(string: strongSelf.imgPath + (item.posterPath ?? "")),
-                                                        title: item.title,
-                                                        mvDefinition: item.overview,
-                                                        releaseDate: item.releaseDate,
+                    guard let movieArr = response?.results?.map({
+                        return HomeBottomTableCellModel(id: $0.id,
+                                                        imageUrl: URL(string: strongSelf.imgPath + ($0.posterPath ?? "")),
+                                                        title: $0.title,
+                                                        mvDefinition: $0.overview,
+                                                        releaseDate: $0.releaseDate,
                                                         page: response?.page)
                     }) else { return}
                     strongSelf.homeBottomItemsArr = movieArr
@@ -113,7 +114,7 @@ extension HomeViewModel {
                     
                 case .failure(let error) :
                     self?.endRefreshing?()
-                    print(error.localizedDescription)
+                    strongSelf.showWarningToast?(error.localizedDescription)
                 }
             }
    }

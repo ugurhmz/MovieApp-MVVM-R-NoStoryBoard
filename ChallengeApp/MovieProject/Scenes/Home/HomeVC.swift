@@ -28,6 +28,14 @@ class HomeVC: BaseViewController<HomeViewModel> {
         return cv
     }()
 
+    
+    private let searchController: UISearchController = {
+        let sc = UISearchController(searchResultsController: nil)
+        sc.searchBar.placeholder = "Search"
+     
+        return sc
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -41,9 +49,10 @@ class HomeVC: BaseViewController<HomeViewModel> {
     
     private func setupViews(){
         view.addSubview(homeCollectionView)
+        navigationItem.searchController = searchController
         homeCollectionView.delegate = self
         homeCollectionView.dataSource = self
-        
+        searchController.searchBar.searchTextField.backgroundColor = .lightGray.withAlphaComponent(0.4)
         self.viewModel.reloadData = { [weak self] in
             guard let self = self else { return }
             self.homeCollectionView.reloadData()
@@ -62,6 +71,18 @@ extension HomeVC {
 
 //MARK: - Delegate, DataSource
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+           let offsetY = scrollView.contentOffset.y
+           let contentHeight = scrollView.contentSize.height
+           let height = scrollView.frame.size.height
+           
+           if offsetY > contentHeight - height && !viewModel.isLoading {
+               viewModel.getMoreMovieData()
+           }
+       }
+       
+    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
