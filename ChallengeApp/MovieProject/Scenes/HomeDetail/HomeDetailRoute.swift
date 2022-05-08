@@ -10,12 +10,11 @@ protocol HomeDetailRoute {
 }
 
 extension HomeDetailRoute where Self: RouterProtocol {
-    
-    // TODO Eksik kısımlar var, sırası gelince düzelt
+
     func pushHomeDetail(movieId: Int) {
         let router = HomeDetailRouter()
-        let viewModel = HomeDetailViewModel()
-        let viewController = HomeDetailVC()
+        let viewModel = HomeDetailViewModel(movieId: movieId,router: router)
+        let viewController = HomeDetailVC(viewModel: viewModel)
         let transition = ModalTransition()
         router.viewController = viewController
         router.openTransition = transition

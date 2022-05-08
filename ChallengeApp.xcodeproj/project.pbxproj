@@ -250,10 +250,10 @@
 		633CC2562821707300252191 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				633CC2582821708F00252191 /* Home */,
 				6380AD482826048200618251 /* HomeDetail */,
 				6380AD34282595FE00618251 /* Base */,
 				632D2FE228220C3500441152 /* WalkThrough */,
-				633CC2582821708F00252191 /* Home */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";

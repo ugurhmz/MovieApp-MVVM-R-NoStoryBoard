@@ -15,19 +15,18 @@ protocol HomeViewModelDataSource {
 protocol HomeViewModelEventSource {
     var reloadData: VoidClosure? { get set}
     var endRefreshing: VoidClosure? {get set}
-    func didSelectItem(at indexPath: IndexPath)
 }
 
 protocol HomeViewModelProtocol: HomeViewModelDataSource, HomeViewModelEventSource {
     var isLoading: Bool { get set}
     var increasePage: Int {get set}
     func getMoreMovieData()
+    func didSelectItem(at indexPath: IndexPath)
 }
 
 //MARK: -
 final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
     
- 
     var isLoading: Bool = false
     var increasePage: Int = 1
     var homeTopCell: HomeTopCellProtocol?
@@ -39,12 +38,12 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
     init(router: HomeRouter) {
         super.init(router: router)
     }
-    
+
     func didSelectItem(at indexPath: IndexPath) {
         let selectItemId = homeBottomItemsArr?[indexPath.row].movieId ?? 0
+        print("selectItemId")
         router.pushHomeDetail(movieId: selectItemId)
     }
-    
     
     func getMoreMovieData() {
         if !self.isLoading {

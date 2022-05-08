@@ -71,6 +71,10 @@ class HomeBottomTableCell: UITableViewCell {
     
     private func setupViews(){
         [imgView, titleLabel, definitionLabel, releaseDateLabel, goToDetailIcon].forEach{ contentView.addSubview($0)}
+        
+        backgroundColor = .white
+        layer.borderWidth = 0.5
+        layer.borderColor = UIColor.lightGray.cgColor
     }
 }
 

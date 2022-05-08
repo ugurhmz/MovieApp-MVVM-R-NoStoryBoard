@@ -8,5 +8,5 @@
 import Foundation
 
 final class HomeRouter: Router , HomeRouter.Routes{
-    typealias Routes  = HomeRoute & HomeDetailRoute
+    typealias Routes  = HomeDetailRoute
 }

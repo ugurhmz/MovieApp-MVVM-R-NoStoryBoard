@@ -11,6 +11,9 @@ class HomeBottomCell: UICollectionViewCell {
 
     static var identifier = "HomeBottomTableCell"
     var cellMovieUpComingList = [HomeBottomTableCellProtocol]()
+    var viewModel: HomeViewModelProtocol?
+    
+    var didSelectItemClosure: IndexPathClosure?
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -66,17 +69,15 @@ extension HomeBottomCell: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeBottomTableCell.identifier, for: indexPath) as? HomeBottomTableCell else {
             return UITableViewCell()
         }
-        
         cell.saveModel(model: cellMovieUpComingList[indexPath.row])
-        cell.backgroundColor = .white
-        
-        cell.layer.borderWidth = 0.5
-        cell.layer.borderColor = UIColor.lightGray.cgColor
-        
        return cell
     }
        
    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        return 165
    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        didSelectItemClosure?(indexPath)
+    }
 }

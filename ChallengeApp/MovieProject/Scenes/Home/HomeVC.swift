@@ -107,12 +107,17 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             if let movieModel = viewModel.homeBottomItemsArr {
                 bottomCell.setData(movieValue: movieModel)
             }
-
+                
+            bottomCell.didSelectItemClosure = { item in
+                self.viewModel.didSelectItem(at: indexPath)
+               
+            }
             return bottomCell
         default:
             return UICollectionViewCell()
         }
     }
+
     
 }
 
