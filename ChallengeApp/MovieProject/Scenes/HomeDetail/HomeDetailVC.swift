@@ -95,7 +95,7 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
                                                       trailing: inset)
          
          // group
-         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.7),
+         let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.62),
                                                 heightDimension: .fractionalHeight(0.70))
          let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                         subitem:  item, count: 2)
@@ -185,7 +185,7 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
     private let overviewLbl: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        label.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unkn"
         label.textColor = .black
         label.numberOfLines = 0
         return label
@@ -237,12 +237,7 @@ extension HomeDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
             
             if indexPath.section == 0 {
                 let cell = generalCollectionView.dequeueReusableCell(withReuseIdentifier: SimilarMovieCollectionCell.identifier, for: indexPath) as! SimilarMovieCollectionCell
-               
-                cell.backgroundColor = UIColor(hue: CGFloat(drand48()),
-                                                saturation: 1,
-                                                brightness: 1,
-                                                alpha: 1)
-                cell.layer.cornerRadius = 20
+                
                 return cell
             }
             return cell
@@ -255,8 +250,9 @@ extension HomeDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
          let view = collectionView.dequeueReusableSupplementaryView(ofKind: "header", withReuseIdentifier: HeaderReusableView.identifier, for: indexPath) as! HeaderReusableView
          
          if indexPath.section == 0{
-             view.titleLabel.text = "Benzer Filmler"
+             view.titleLabel.text = viewModel.sectionName
          }
+         
          return view
      }
     
@@ -288,7 +284,7 @@ extension HomeDetailVC {
                               bottom: nil,
                               trailing: view.trailingAnchor,
                               size: .init(width: 0,
-                                          height: 330))
+                                          height: 300))
         imdbImageIcon.anchor(top: movieImageView.bottomAnchor,
                              leading: view.leadingAnchor,
                              bottom: nil,
@@ -335,7 +331,7 @@ extension HomeDetailVC {
                          leading: view.leadingAnchor,
                          bottom: nil,
                         trailing: view.trailingAnchor,
-                        padding: .init(top: 16,
+                        padding: .init(top: 8,
                                        left: 15, bottom: 0, right: 15),
                          size: .init(width: 0,
                                      height: 35))
@@ -343,14 +339,16 @@ extension HomeDetailVC {
                        leading: view.leadingAnchor,
                         bottom: nil,
                        trailing: view.trailingAnchor,
-                       padding: .init(top: 11,
+                       padding: .init(top: 9,
                                        left: 15, bottom: 0, right: 15))
         
-        generalCollectionView.anchor(top: overviewLbl.bottomAnchor,
+        generalCollectionView.anchor(top: nil,
                                      leading: view.leadingAnchor,
                                      bottom: view.bottomAnchor,
                                      trailing: view.trailingAnchor,
-                                     padding: .init(top: 7,
-                                                     left: 5, bottom: 15, right: 0))
+                                     padding: .init(top: 0,
+                                                     left: 5, bottom: 15, right: 0),
+                                     size: .init(width: 0, height: 150)
+        )
     }
 }

@@ -11,11 +11,9 @@ class HeaderReusableView: UICollectionReusableView {
     static var identifier = "HeaderReusableView"
        
        
-       
-    
        public let titleLabel: UILabel = {
            let label = UILabel()
-           label.font = .systemFont(ofSize: 22)
+           label.font = .systemFont(ofSize: 19, weight: .semibold)
            label.text = "ABC"
            label.textColor = .black
            label.translatesAutoresizingMaskIntoConstraints = false
