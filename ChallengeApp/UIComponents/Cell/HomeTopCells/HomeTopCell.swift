@@ -11,6 +11,8 @@ class HomeTopCell: UICollectionViewCell {
     static var  identifier = "HomeTopCell"
     weak var movieViewModel: HomeTopCellProtocol?
     
+    var itemClosure: IndexPathClosure?
+    
     private let topGeneralCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -106,6 +108,11 @@ extension HomeTopCell: UICollectionViewDelegate, UICollectionViewDataSource {
         }
         return cell
     }
+    
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+         itemClosure?(indexPath)
+         
+     }
 }
 
 //MARK: - ViewDelegateFlowLayout

@@ -10,6 +10,7 @@ import Foundation
 protocol HomeViewModelDataSource {
     var homeTopCell: HomeTopCellProtocol? { get }
     var homeBottomItemsArr: [HomeBottomTableCellProtocol]? { get set}
+    var homeNowPlayingMovieArr: [HomeSliderCellProtocol]? { get set}
 }
 
 protocol HomeViewModelEventSource {
@@ -26,6 +27,8 @@ protocol HomeViewModelProtocol: HomeViewModelDataSource, HomeViewModelEventSourc
 
 //MARK: -
 final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
+    var homeNowPlayingMovieArr: [HomeSliderCellProtocol]?
+
     
     var isLoading: Bool = false
     var increasePage: Int = 1
@@ -40,8 +43,14 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
     }
 
     func didSelectItem(at indexPath: IndexPath) {
-        let selectItemId = homeBottomItemsArr?[indexPath.row].movieId ?? 2
+        let selectItemId = homeBottomItemsArr?[indexPath.row].movieId ?? 0
         print("selectItemId",selectItemId)
+        
+        router.pushHomeDetail(movieId: selectItemId)
+    }
+    
+    func didSelectTopItem(at indexPath: IndexPath) {
+        let selectItemId = homeNowPlayingMovieArr?[indexPath.item].movieId ?? 0
         router.pushHomeDetail(movieId: selectItemId)
     }
     
@@ -78,11 +87,13 @@ extension HomeViewModel {
             switch result {
             case .success(let response):
                 guard let nowPlayingArr = response?.results?.map({
-                    return HomeSliderCellModel(image:URL(string: strongSelf.imgPath + ($0.poster_path ?? "")) ,
+                    return HomeSliderCellModel(id: $0.id,
+                                                image:URL(string: strongSelf.imgPath + ($0.poster_path ?? "")) ,
                                                title: $0.title,
                                                definition: $0.overview,
                                                totalPagesIndicator: response?.results?.count)
                 }) else { return}
+                strongSelf.homeNowPlayingMovieArr = nowPlayingArr
                 strongSelf.homeTopCell = HomeTopCellModel(homeHeaderCellValues: nowPlayingArr)
                 strongSelf.endRefreshing?()
                 strongSelf.reloadData?()

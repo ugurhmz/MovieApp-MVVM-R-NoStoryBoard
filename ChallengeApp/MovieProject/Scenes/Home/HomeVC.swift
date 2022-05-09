@@ -81,8 +81,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
                viewModel.getMoreMovieData()
            }
        }
-       
-    
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
@@ -115,6 +113,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
                 topCell.setData(movieData: movieValue )
             }
             
+            topCell.itemClosure = { item in
+                self.viewModel.didSelectTopItem(at: item)
+            }
             return topCell
             
             

@@ -8,6 +8,7 @@
 import Foundation
 
 protocol HomeSliderCellDataSource: AnyObject {
+    var movieId: Int? { get }
     var moiveImage: URL? {get}
     var movieTitle: String? {get}
     var movieDefinition: String? { get }
@@ -25,17 +26,19 @@ protocol HomeSliderCellProtocol: HomeSliderCellDataSource, HomeSliderCellEventSo
 
 //MARK: -
 final class HomeSliderCellModel: HomeSliderCellProtocol {
-    
+    var movieId: Int?
     var moiveImage: URL?
     var movieTitle: String?
     var movieDefinition: String?
     var totalPagesIndicator: Int?
     
-    public init( image: URL? = nil,
+    public init(id: Int? = nil,
+                image: URL? = nil,
                 title: String? = nil,
                 definition: String? = nil,
                 totalPagesIndicator: Int? = nil)
     {
+        self.movieId = id
         self.moiveImage = image
         self.movieTitle = title
         self.movieDefinition = definition

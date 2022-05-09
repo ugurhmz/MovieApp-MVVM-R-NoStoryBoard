@@ -17,22 +17,21 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
             let standardAppearance = UINavigationBarAppearance()
             standardAppearance.configureWithOpaqueBackground()
             standardAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-            standardAppearance.backgroundColor = .white
+            standardAppearance.backgroundColor = .clear
             navigationItem.standardAppearance = standardAppearance
             navigationItem.scrollEdgeAppearance = standardAppearance
             navigationItem.compactAppearance = standardAppearance
             
             let buttonAppearance = UIBarButtonItemAppearance()
-            buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.black,.font : UIFont.systemFont(ofSize:20, weight: .bold)]
-            button.tintColor = .black
+            buttonAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.black,.font : UIFont.systemFont(ofSize:23, weight: .bold)]
+            button.tintColor = .systemBlue
             navigationItem.standardAppearance?.buttonAppearance = buttonAppearance
             navigationItem.compactAppearance?.buttonAppearance = buttonAppearance
             
-            button.image = UIImage(systemName: "arrowshape.turn.up.left")
+            button.image = UIImage(systemName: "chevron.left")
             button.action = #selector(backToHomePageBtn)
+            navBar.layer.zPosition = 1
             
-            
-            navigationItem.title = ""
             navigationItem.leftBarButtonItem = button
             navBar.setItems([navigationItem], animated: false)
             return navBar
@@ -53,11 +52,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
             cv.register(SimilarMovieCollectionCell.self, forCellWithReuseIdentifier: SimilarMovieCollectionCell.identifier)
             return cv
    }()
-    
-    
-    
-    
-    
     
     //MARK: - createCompositionalLayout
       static func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
@@ -117,15 +111,12 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
          return section
      }
     
-    
-    // movie image
     private let movieImageView: UIImageView = {
         let iv = UIImageView()
         iv.contentMode = .scaleToFill
         return iv
     }()
     
-    // movie image
     private let imdbImageIcon: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named:"imdbIcon")
@@ -133,7 +124,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
         return iv
     }()
     
-    // movie image
     private let starIcon: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(systemName:"star.fill")
@@ -142,7 +132,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
         return iv
     }()
     
-    //  rate label
     private let rateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .medium)
@@ -151,7 +140,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
         return label
     }()
    
-    
     private let circleIcon: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(systemName:"circle.fill")
@@ -160,8 +148,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
         return iv
     }()
     
-
-    // relase date label
     private let releaseDateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
@@ -169,26 +155,21 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
         return label
     }()
 
-    // relase date label
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 23, weight: .bold)
         label.textColor = .black
+        label.numberOfLines = 2
         return label
     }()
 
-    
-    // relase date label
     private let overviewLbl: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 15, weight: .regular)
+        label.font = .systemFont(ofSize: 17, weight: .regular)
         label.textColor = .black
         label.numberOfLines = 0
         return label
     }()
-    
-    
-  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -239,27 +220,22 @@ extension HomeDetailVC {
         starIcon.image = UIImage(systemName: "star.fill")
         imdbImageIcon.image = UIImage(named:"imdbIcon")
         circleIcon.image = UIImage(systemName: "circle.fill")
-        navigationBar.topItem?.title = viewModel.movieTitle
     }
 }
 
 
 //MARK: - Delegate,DataSource
 extension HomeDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
-    // numberOfSections
+  
        func numberOfSections(in collectionView: UICollectionView) -> Int {
            return 1
        }
        
-    // numberOfItemsInSection
       func collectionView(_ collectionView: UICollectionView,
                           numberOfItemsInSection section: Int) -> Int {
-          
-          
           return 10
       }
-    
-    // cellForItemAt
+   
         func collectionView(_ collectionView: UICollectionView,
                             cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = generalCollectionView.dequeueReusableCell(withReuseIdentifier: "cellId",
@@ -272,7 +248,7 @@ extension HomeDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
             }
             return cell
         }
-    // viewForSupplementaryElementOfKind
+   
      func collectionView(_ collectionView: UICollectionView,
                          viewForSupplementaryElementOfKind kind: String,
                          at indexPath: IndexPath) -> UICollectionReusableView {
@@ -289,8 +265,6 @@ extension HomeDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
 }
 
 
-
-
 //MARK: - Constraints
 extension HomeDetailVC {
     
@@ -302,19 +276,18 @@ extension HomeDetailVC {
         view.addSubview(generalCollectionView)
     }
     
-    
     private func setConstraints(){
         navigationBar.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                              leading: view.leadingAnchor,
                              bottom: nil,
                              trailing: view.trailingAnchor)
         
-        movieImageView.anchor(top: navigationBar.bottomAnchor,
+        movieImageView.anchor(top: view.topAnchor,
                               leading: view.leadingAnchor,
                               bottom: nil,
                               trailing: view.trailingAnchor,
                               size: .init(width: 0,
-                                          height: 330))
+                                          height: 430))
         imdbImageIcon.anchor(top: movieImageView.bottomAnchor,
                              leading: view.leadingAnchor,
                              bottom: nil,
