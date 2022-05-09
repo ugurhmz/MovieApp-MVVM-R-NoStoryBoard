@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
 
@@ -31,13 +32,13 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
             button.action = #selector(backToHomePageBtn)
             
             
-            navigationItem.title =  "Ger"
+            navigationItem.title = ""
             navigationItem.leftBarButtonItem = button
             navBar.setItems([navigationItem], animated: false)
             return navBar
     }()
     
-    private let generalCollectionView: UICollectionView = {
+    private var generalCollectionView: UICollectionView = {
             let layout = UICollectionViewFlowLayout()
             let cv = UICollectionView(frame: .zero, collectionViewLayout: HomeDetailVC.createCompositionalLayout())
             cv.backgroundColor = .white
@@ -120,7 +121,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
     // movie image
     private let movieImageView: UIImageView = {
         let iv = UIImageView()
-        iv.image = UIImage(named:"v4")
         iv.contentMode = .scaleToFill
         return iv
     }()
@@ -146,7 +146,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
     private let rateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .medium)
-        label.text = "7.8/10"
         label.textColor = .black
       
         return label
@@ -166,7 +165,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
     private let releaseDateLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.text = "26-04-1994"
         label.textColor = .black
         return label
     }()
@@ -175,7 +173,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 23, weight: .bold)
-        label.text = "Harry Potter 2013"
         label.textColor = .black
         return label
     }()
@@ -185,7 +182,6 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
     private let overviewLbl: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15, weight: .regular)
-        label.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unkn"
         label.textColor = .black
         label.numberOfLines = 0
         return label
@@ -204,7 +200,24 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
                
         generalCollectionView.collectionViewLayout =  HomeDetailVC.createCompositionalLayout()
         setConstraints()
+        
+        self.viewModel.reloadData = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.populateData()
+        }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        viewModel.fetchDetailData()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        starIcon.image = nil
+        imdbImageIcon.image = nil
+        circleIcon.image = nil
+    }
+  
     
   @objc func backToHomePageBtn(){
        dismiss(animated: true, completion: nil)
@@ -212,6 +225,23 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
 
 }
 
+
+//MARK: -
+extension HomeDetailVC {
+    private func populateData(){
+        self.titleLabel.text = viewModel.movieTitle
+        self.movieImageView.kf.setImage(with: viewModel.movieImageUrl)
+        self.overviewLbl.text = viewModel.movieDefinition
+        if let mvRate = viewModel.movieRate {
+            self.rateLabel.text = "\(mvRate)"
+        }
+        self.releaseDateLabel.text = viewModel.movieReleaseData
+        starIcon.image = UIImage(systemName: "star.fill")
+        imdbImageIcon.image = UIImage(named:"imdbIcon")
+        circleIcon.image = UIImage(systemName: "circle.fill")
+        navigationBar.topItem?.title = viewModel.movieTitle
+    }
+}
 
 
 //MARK: - Delegate,DataSource
@@ -284,7 +314,7 @@ extension HomeDetailVC {
                               bottom: nil,
                               trailing: view.trailingAnchor,
                               size: .init(width: 0,
-                                          height: 300))
+                                          height: 330))
         imdbImageIcon.anchor(top: movieImageView.bottomAnchor,
                              leading: view.leadingAnchor,
                              bottom: nil,

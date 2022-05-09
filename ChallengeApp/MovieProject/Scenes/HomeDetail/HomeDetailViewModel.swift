@@ -9,7 +9,7 @@ import Foundation
 
 protocol HomeDetailViewModelDataSource {
     var movieId: Int? {get}
-    var movieImage: String? {get}
+    var movieImageUrl: URL? {get}
     var movieRate: Double? { get}
     var movieTitle: String? { get }
     var movieDefinition: String? {get}
@@ -30,10 +30,11 @@ class HomeDetailViewModel: BaseViewModel<HomeDetailRouter>, HomeDetailViewModelP
     
     var movieReleaseData: String?
     var movieId: Int?
-    var movieImage: String?
+    var movieImageUrl: URL?
     var movieRate: Double?
     var movieTitle: String?
     var movieDefinition: String?
+    let imgPath: String = "https://image.tmdb.org/t/p/original"
     
     var sectionName: String? {
         return "Benzer Filmler"
@@ -48,7 +49,7 @@ class HomeDetailViewModel: BaseViewModel<HomeDetailRouter>, HomeDetailViewModelP
         self.movieTitle = detailModel.title
         self.movieDefinition  = detailModel.overview
         self.movieRate = detailModel.voteAverage
-        self.movieImage = detailModel.posterPath
+        self.movieImageUrl = URL(string: imgPath + (detailModel.posterPath ?? "") )
         self.movieReleaseData = detailModel.releaseDate
     }
 }

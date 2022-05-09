@@ -79,5 +79,6 @@ extension HomeBottomCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItemClosure?(indexPath)
+        print(indexPath)
     }
 }

@@ -130,7 +130,9 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
             }
                 
             bottomCell.didSelectItemClosure = { item in
-                self.viewModel.didSelectItem(at: indexPath)
+                print("myitem",item)
+                self.viewModel.didSelectItem(at: item)
+            
                
             }
             return bottomCell

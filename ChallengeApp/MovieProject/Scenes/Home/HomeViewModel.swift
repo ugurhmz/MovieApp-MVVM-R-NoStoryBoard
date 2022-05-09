@@ -40,8 +40,8 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
     }
 
     func didSelectItem(at indexPath: IndexPath) {
-        let selectItemId = homeBottomItemsArr?[indexPath.row].movieId ?? 0
-        print("selectItemId")
+        let selectItemId = homeBottomItemsArr?[indexPath.row].movieId ?? 2
+        print("selectItemId",selectItemId)
         router.pushHomeDetail(movieId: selectItemId)
     }
     
