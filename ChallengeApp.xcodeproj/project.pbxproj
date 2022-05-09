@@ -40,6 +40,9 @@
 		633CC24728216C2700252191 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 633CC24628216C2700252191 /* Assets.xcassets */; };
 		6376388F2828F0160019E7ED /* SimilarCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376388E2828F0160019E7ED /* SimilarCellModel.swift */; };
 		63763891282904900019E7ED /* MovieSimilarRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63763890282904900019E7ED /* MovieSimilarRequest.swift */; };
+		6376389328291D4B0019E7ED /* BlockingActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376389228291D4B0019E7ED /* BlockingActivityIndicator.swift */; };
+		6376389528291DBA0019E7ED /* ActivityIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376389428291DBA0019E7ED /* ActivityIndicatorProtocol.swift */; };
+		6376389728291EDE0019E7ED /* UIActivityIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6376389628291EDE0019E7ED /* UIActivityIndicatorView.swift */; };
 		6380600928235211006A0308 /* HomeTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380600828235211006A0308 /* HomeTopCell.swift */; };
 		6380600B28235444006A0308 /* HomeBottomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380600A28235444006A0308 /* HomeBottomCell.swift */; };
 		6380600F28235B03006A0308 /* HomeSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6380600E28235B03006A0308 /* HomeSliderCell.swift */; };
@@ -105,6 +108,9 @@
 		633CC24628216C2700252191 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6376388E2828F0160019E7ED /* SimilarCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimilarCellModel.swift; sourceTree = "<group>"; };
 		63763890282904900019E7ED /* MovieSimilarRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSimilarRequest.swift; sourceTree = "<group>"; };
+		6376389228291D4B0019E7ED /* BlockingActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockingActivityIndicator.swift; sourceTree = "<group>"; };
+		6376389428291DBA0019E7ED /* ActivityIndicatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorProtocol.swift; sourceTree = "<group>"; };
+		6376389628291EDE0019E7ED /* UIActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicatorView.swift; sourceTree = "<group>"; };
 		6380600828235211006A0308 /* HomeTopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopCell.swift; sourceTree = "<group>"; };
 		6380600A28235444006A0308 /* HomeBottomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBottomCell.swift; sourceTree = "<group>"; };
 		6380600E28235B03006A0308 /* HomeSliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSliderCell.swift; sourceTree = "<group>"; };
@@ -323,6 +329,7 @@
 		633CC25D2821851000252191 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
+				6376389828291F1B0019E7ED /* UIActivityIndicatorView */,
 				633CC2572821707C00252191 /* Cell */,
 				63D6C81B2824F6A400D34EB9 /* Loading */,
 			);
@@ -336,6 +343,14 @@
 				632D2FE328220DC700441152 /* Extensions */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		6376389828291F1B0019E7ED /* UIActivityIndicatorView */ = {
+			isa = PBXGroup;
+			children = (
+				6376389628291EDE0019E7ED /* UIActivityIndicatorView.swift */,
+			);
+			path = UIActivityIndicatorView;
 			sourceTree = "<group>";
 		};
 		637CDE9F2821DB7500B210D0 /* Resources */ = {
@@ -448,6 +463,8 @@
 			isa = PBXGroup;
 			children = (
 				63D6C81C2824F6B300D34EB9 /* LoadingProtocol.swift */,
+				6376389228291D4B0019E7ED /* BlockingActivityIndicator.swift */,
+				6376389428291DBA0019E7ED /* ActivityIndicatorProtocol.swift */,
 			);
 			path = Loading;
 			sourceTree = "<group>";
@@ -604,14 +621,17 @@
 				632D2FC02821E8A500441152 /* MovieUpComingModel.swift in Sources */,
 				6380AD3F2825A74900618251 /* HomeTopCellModel.swift in Sources */,
 				6380AD412825AB0100618251 /* HomeSliderCellModel.swift in Sources */,
+				6376389328291D4B0019E7ED /* BlockingActivityIndicator.swift in Sources */,
 				63D6C7392824C6A800D34EB9 /* APIDataProvider.swift in Sources */,
 				632D2FDB282207EA00441152 /* PlaceOnWindowTransition.swift in Sources */,
 				63D6C73B2824C73100D34EB9 /* APIRequestInterceptor.swift in Sources */,
 				632D2FB62821E55D00441152 /* DataProviderProtocol.swift in Sources */,
 				632D2FD32822071500441152 /* AppRouter.swift in Sources */,
 				6376388F2828F0160019E7ED /* SimilarCellModel.swift in Sources */,
+				6376389528291DBA0019E7ED /* ActivityIndicatorProtocol.swift in Sources */,
 				6380AD362825961000618251 /* BaseViewModel.swift in Sources */,
 				63D6C81D2824F6B300D34EB9 /* LoadingProtocol.swift in Sources */,
+				6376389728291EDE0019E7ED /* UIActivityIndicatorView.swift in Sources */,
 				632D2FD1282206EE00441152 /* Router.swift in Sources */,
 				6380AD3A282596E200618251 /* MainNavigationController.swift in Sources */,
 				633CC23E28216C2600252191 /* AppDelegate.swift in Sources */,

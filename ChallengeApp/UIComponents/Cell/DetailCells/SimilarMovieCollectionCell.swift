@@ -21,12 +21,23 @@ class SimilarMovieCollectionCell: UICollectionViewCell {
         return iv
     }()
     
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 16, weight: .medium)
+        label.textColor = .darkGray
+        label.numberOfLines = 2
+        return label
+    }()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupViews()
+        setConstraints()
+    }
+    
+    private func setupViews(){
         addSubview(movieImageView)
-        movieImageView.frame = CGRect(x: 0, y: 0, width: frame.width, height: 100)
-        
+        addSubview(titleLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -42,5 +53,26 @@ extension SimilarMovieCollectionCell {
             return
         }
         self.movieImageView.kf.setImage(with: movieImg )
+        self.titleLabel.text = movieValue.movieTitle
     }
 }
+
+
+extension SimilarMovieCollectionCell {
+    private func setConstraints(){
+        movieImageView.anchor(top: topAnchor,
+                              leading: leadingAnchor,
+                              bottom: nil,
+                              trailing: trailingAnchor,
+                              size: .init(width: 0, height: 142)
+        )
+        
+        titleLabel.anchor(top: movieImageView.bottomAnchor,
+                          leading: leadingAnchor,
+                          bottom: bottomAnchor,
+                          trailing: trailingAnchor,
+                          padding: .init(top: 0, left: 2, bottom: 10, right: 0)
+        )
+    }
+}
+

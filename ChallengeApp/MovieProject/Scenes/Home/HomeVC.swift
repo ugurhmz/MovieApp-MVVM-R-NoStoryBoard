@@ -57,7 +57,6 @@ class HomeVC: BaseViewController<HomeViewModel> {
             guard let self = self else { return }
             self.homeCollectionView.reloadData()
         }
-        
     }
 }
 
@@ -67,7 +66,6 @@ extension HomeVC {
         homeCollectionView.fillSuperview()
     }
 }
-
 
 //MARK: - Delegate, DataSource
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -142,7 +140,6 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource {
         }
     }
 
-    
 }
 
 //MARK: - DelegateFlowLayout

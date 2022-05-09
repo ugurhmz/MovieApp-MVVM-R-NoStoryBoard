@@ -23,7 +23,7 @@ class HomeBottomTableCell: UITableViewCell {
     // movie title
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 23, weight: .bold)
+        label.font = .systemFont(ofSize: 21, weight: .bold)
         label.text = "Spider Man 2013"
         label.textColor = .black
         label.numberOfLines = 2
@@ -85,7 +85,12 @@ extension HomeBottomTableCell {
         guard let movieImageUrl = model.moiveImage else {
             return
         }
-        self.titleLabel.text = model.movieTitle
+        
+        if let mvTitle = model.movieTitle {
+            if let movieDate =  model.releaseDateLabel {
+                self.titleLabel.text = "\(mvTitle) (\(movieDate.prefix(4)))"
+            }
+        }
         self.imgView.kf.setImage(with: movieImageUrl)
         self.definitionLabel.text = model.movieDefinition
         self.releaseDateLabel.text = model.releaseDateLabel

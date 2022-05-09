@@ -12,6 +12,7 @@ protocol HomeSliderCellDataSource: AnyObject {
     var moiveImage: URL? {get}
     var movieTitle: String? {get}
     var movieDefinition: String? { get }
+    var movieReleaseDate: String? { get }
     var totalPagesIndicator: Int? {get set}
 }
 
@@ -23,7 +24,6 @@ protocol HomeSliderCellProtocol: HomeSliderCellDataSource, HomeSliderCellEventSo
     
 }
 
-
 //MARK: -
 final class HomeSliderCellModel: HomeSliderCellProtocol {
     var movieId: Int?
@@ -31,18 +31,21 @@ final class HomeSliderCellModel: HomeSliderCellProtocol {
     var movieTitle: String?
     var movieDefinition: String?
     var totalPagesIndicator: Int?
+    var movieReleaseDate: String?
     
     public init(id: Int? = nil,
                 image: URL? = nil,
                 title: String? = nil,
                 definition: String? = nil,
-                totalPagesIndicator: Int? = nil)
+                totalPagesIndicator: Int? = nil,
+                movieReleaseDate: String? = nil)
     {
         self.movieId = id
         self.moiveImage = image
         self.movieTitle = title
         self.movieDefinition = definition
         self.totalPagesIndicator = totalPagesIndicator
+        self.movieReleaseDate = movieReleaseDate
         
     }
 }

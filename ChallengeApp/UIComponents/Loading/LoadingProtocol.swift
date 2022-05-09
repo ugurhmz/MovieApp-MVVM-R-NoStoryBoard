@@ -16,12 +16,12 @@ public extension LoadingProtocol where Self: UIViewController {
     
     func presentLoading() {
         let window = UIApplication.shared.windows.first
-        //window?.startBlockingActivityIndicator()
+        window?.startBlockingActivityIndicator()
     }
     
     func dismissLoading() {
         let window = UIApplication.shared.windows.first
-        //window?.stopBlockingActivityIndicator()
+        window?.stopBlockingActivityIndicator()
     }
     
 }

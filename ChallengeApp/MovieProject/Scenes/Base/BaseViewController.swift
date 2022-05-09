@@ -9,7 +9,7 @@ import UIKit
 
 class BaseViewController<V: BaseViewModelProtocol>: UIViewController, BaseViewController.LoadingProtocols {
     
-    typealias LoadingProtocols = LoadingProtocol
+    typealias LoadingProtocols = LoadingProtocol  & ActivityIndicatorProtocol
 
     var viewModel: V
     
@@ -27,7 +27,7 @@ class BaseViewController<V: BaseViewModelProtocol>: UIViewController, BaseViewCo
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-      
+        self.showActivityIndicator()
     }
     
     #if DEBUG

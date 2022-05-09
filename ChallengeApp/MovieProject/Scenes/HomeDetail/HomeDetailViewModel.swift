@@ -8,17 +8,16 @@
 import Foundation
 
 protocol HomeDetailViewModelDataSource {
+    
     var movieId: Int? {get}
     var movieImageUrl: URL? {get}
     var movieRate: Double? { get}
     var movieTitle: String? { get }
     var movieDefinition: String? {get}
     var movieReleaseData: String? {get}
-    
     var similarMovieArr: [SimilarCellProtocoL]? { get set}
     func cellItem(for indexPath: IndexPath) -> SimilarCellProtocoL
     var similarCell: SimilarCellProtocoL? {get}
-    
     var numberItemsInSection: Int { get }
 }
 
@@ -52,7 +51,6 @@ class HomeDetailViewModel: BaseViewModel<HomeDetailRouter>, HomeDetailViewModelP
         return similarMovieArr?.count ?? 0
     }
     
-    
     init(movieId: Int?, router: HomeDetailRouter){
         self.movieId = movieId
         super.init(router: router)
@@ -70,7 +68,6 @@ class HomeDetailViewModel: BaseViewModel<HomeDetailRouter>, HomeDetailViewModelP
     func cellItem(for indexPath: IndexPath) -> SimilarCellProtocoL {
         return similarMovieArr?[indexPath.row] ?? SimilarCellModel()
     }
-    
 }
 
 //MARK: - Fetch Data

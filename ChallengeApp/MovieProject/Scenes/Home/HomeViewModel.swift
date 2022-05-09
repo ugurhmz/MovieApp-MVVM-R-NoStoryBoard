@@ -77,7 +77,6 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
    
 }
 
-
 //MARK: - Fetch Data
 extension HomeViewModel {
     func fetchNowPlayingMovies(){
@@ -91,7 +90,9 @@ extension HomeViewModel {
                                                 image:URL(string: strongSelf.imgPath + ($0.poster_path ?? "")) ,
                                                title: $0.title,
                                                definition: $0.overview,
-                                               totalPagesIndicator: response?.results?.count)
+                                               totalPagesIndicator: response?.results?.count,
+                                               movieReleaseDate: $0.releaseDate
+                    )
                 }) else { return}
                 strongSelf.homeNowPlayingMovieArr = nowPlayingArr
                 strongSelf.homeTopCell = HomeTopCellModel(homeHeaderCellValues: nowPlayingArr)

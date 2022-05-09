@@ -77,7 +77,7 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
     //MARK: - SECOND SECTION
      static func createSecondSection() -> NSCollectionLayoutSection {
          
-         let inset: CGFloat = 3
+         let inset: CGFloat = 2
          
          // item
          let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.4),
@@ -91,7 +91,7 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
          
          // group
          let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.62),
-                                                heightDimension: .fractionalHeight(0.70))
+                                                heightDimension: .fractionalHeight(1))
          let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
                                                         subitem:  item, count: 2)
          
@@ -102,7 +102,7 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
          
          // suplementary
          let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                 heightDimension: .absolute(45))
+                                                 heightDimension: .absolute(25))
          
          let header = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerSize,
                                                                   elementKind: "header",
@@ -202,11 +202,15 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
 
 }
 
-
 //MARK: -
 extension HomeDetailVC {
     private func populateDetailData(){
-        self.titleLabel.text = viewModel.movieTitle
+        if let mvTitle = viewModel.movieTitle {
+            if let movieDate =  viewModel.movieReleaseData {
+                self.titleLabel.text = "\(mvTitle) (\(movieDate.prefix(4)))"
+            }
+        }
+        
         self.movieImageView.kf.setImage(with: viewModel.movieImageUrl)
         self.overviewLbl.text = viewModel.movieDefinition
         if let mvRate = viewModel.movieRate {
@@ -293,7 +297,7 @@ extension HomeDetailVC {
                               bottom: nil,
                               trailing: view.trailingAnchor,
                               size: .init(width: 0,
-                                          height: 430))
+                                          height: 355))
         imdbImageIcon.anchor(top: movieImageView.bottomAnchor,
                              leading: view.leadingAnchor,
                              bottom: nil,
@@ -340,7 +344,7 @@ extension HomeDetailVC {
                          leading: view.leadingAnchor,
                          bottom: nil,
                         trailing: view.trailingAnchor,
-                        padding: .init(top: 8,
+                        padding: .init(top: 6,
                                        left: 15, bottom: 0, right: 15),
                          size: .init(width: 0,
                                      height: 35))
@@ -348,7 +352,7 @@ extension HomeDetailVC {
                        leading: view.leadingAnchor,
                         bottom: nil,
                        trailing: view.trailingAnchor,
-                       padding: .init(top: 9,
+                       padding: .init(top: 3,
                                        left: 15, bottom: 0, right: 15))
         
         generalCollectionView.anchor(top: nil,
@@ -357,7 +361,7 @@ extension HomeDetailVC {
                                      trailing: view.trailingAnchor,
                                      padding: .init(top: 0,
                                                      left: 5, bottom: 15, right: 0),
-                                     size: .init(width: 0, height: 150)
+                                     size: .init(width: 0, height: 220)
         )
     }
 }

@@ -19,7 +19,6 @@ protocol SliderCellEventSource: AnyObject {
 }
 
 protocol SimilarCellProtocoL: SliderCellDataSource, SliderCellEventSource {
-   // func cellItem(for indexPath: IndexPath) -> SimilarCellModelProtocoL
 }
 
 //MARK: -

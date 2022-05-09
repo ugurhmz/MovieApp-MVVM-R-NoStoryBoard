@@ -32,7 +32,7 @@ class HomeSliderCell: UICollectionViewCell {
         let text = "Spider Man 2013"
         label.attributedText = NSAttributedString(string: text, attributes: [.kern: 1.14])
         label.textColor = .white
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.lineBreakMode = .byWordWrapping
         return label
     }()
@@ -76,7 +76,11 @@ class HomeSliderCell: UICollectionViewCell {
 //MARK: -
 extension HomeSliderCell {
     func fillData(movie: HomeSliderCellProtocol) {
-        self.titleLabel.text = movie.movieTitle
+        if let mvTitle = movie.movieTitle {
+            if let movieDate =  movie.movieReleaseDate {
+                self.titleLabel.text = "\(mvTitle) (\(movieDate.prefix(4)))"
+            }
+        }
         self.definitionLabel.text = movie.movieDefinition
         self.movieImageView.kf.setImage(with: movie.moiveImage)
     }
