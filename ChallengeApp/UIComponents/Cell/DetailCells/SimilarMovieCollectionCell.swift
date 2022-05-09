@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SimilarMovieCollectionCell: UICollectionViewCell {
     static var identifier = "SimilarMovieCollectionCell"
@@ -20,6 +21,7 @@ class SimilarMovieCollectionCell: UICollectionViewCell {
         return iv
     }()
     
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(movieImageView)
@@ -29,5 +31,16 @@ class SimilarMovieCollectionCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError()
+    }
+}
+
+//MARK: -
+extension SimilarMovieCollectionCell {
+    func fillSimilarData(movieValue: SimilarCellProtocoL) {
+        
+        guard let movieImg = movieValue.movieImageUrl else {
+            return
+        }
+        self.movieImageView.kf.setImage(with: movieImg )
     }
 }

@@ -9,7 +9,7 @@ import UIKit
 import Kingfisher
 
 class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
-
+    
     private let navigationBar : UINavigationBar = {
             let navBar = UINavigationBar()
             let navigationItem =  UINavigationItem()
@@ -46,9 +46,9 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
             // register
             cv.register(UICollectionViewCell.self,
                         forCellWithReuseIdentifier: "cellId")
-           
+           //titlte
             cv.register(HeaderReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier:   HeaderReusableView.identifier)
-            
+            // cell
             cv.register(SimilarMovieCollectionCell.self, forCellWithReuseIdentifier: SimilarMovieCollectionCell.identifier)
             return cv
    }()
@@ -181,16 +181,12 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
                
         generalCollectionView.collectionViewLayout =  HomeDetailVC.createCompositionalLayout()
         setConstraints()
-        
-        self.viewModel.reloadData = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.populateData()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         viewModel.fetchDetailData()
+        viewModel.fetchSimilarMovieData()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -209,7 +205,7 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
 
 //MARK: -
 extension HomeDetailVC {
-    private func populateData(){
+    private func populateDetailData(){
         self.titleLabel.text = viewModel.movieTitle
         self.movieImageView.kf.setImage(with: viewModel.movieImageUrl)
         self.overviewLbl.text = viewModel.movieDefinition
@@ -233,7 +229,7 @@ extension HomeDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
        
       func collectionView(_ collectionView: UICollectionView,
                           numberOfItemsInSection section: Int) -> Int {
-          return 10
+          return self.viewModel.numberItemsInSection
       }
    
         func collectionView(_ collectionView: UICollectionView,
@@ -243,9 +239,13 @@ extension HomeDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
             
             if indexPath.section == 0 {
                 let cell = generalCollectionView.dequeueReusableCell(withReuseIdentifier: SimilarMovieCollectionCell.identifier, for: indexPath) as! SimilarMovieCollectionCell
-                
+              
+                if let similarList = viewModel.similarMovieArr {
+                    cell.fillSimilarData(movieValue: similarList[indexPath.row])
+                }
                 return cell
             }
+            
             return cell
         }
    
@@ -274,6 +274,12 @@ extension HomeDetailVC {
         view.addSubview(titleLabel)
         view.addSubview(overviewLbl)
         view.addSubview(generalCollectionView)
+        
+        self.viewModel.reloadData = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.populateDetailData()
+            strongSelf.generalCollectionView.reloadData()
+        }
     }
     
     private func setConstraints(){
