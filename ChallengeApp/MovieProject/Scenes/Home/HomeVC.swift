@@ -30,7 +30,7 @@ class HomeVC: BaseViewController<HomeViewModel> {
 
     
     private let searchController: UISearchController = {
-        let sc = UISearchController(searchResultsController: SearchCompositionalResultsVC())
+        let sc = UISearchController(searchResultsController: SearchResultsVC())
         sc.searchBar.placeholder = "Search"
         
         return sc
