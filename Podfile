@@ -8,4 +8,5 @@ target 'ChallengeApp' do
   # Pods for ChallengeApp
 	pod 'Alamofire', '~> 5.5'
   	pod 'Kingfisher', '~> 7.0'
+	pod 'SwiftEntryKit', '2.0.0'
 end

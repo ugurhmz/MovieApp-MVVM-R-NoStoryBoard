@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol HomeViewModelDataSource {
     var homeTopCell: HomeTopCellProtocol? { get }
@@ -145,6 +146,7 @@ extension HomeViewModel {
         guard let mykeyword = self.keyword,
               !mykeyword.trimmingCharacters(in: .whitespaces).isEmpty,
               (mykeyword.trimmingCharacters(in: .whitespaces).count) >= 2 else {
+                  SnackHelper.showSnack(message: "Lütfen en az 2 karakter giriniz.")
             return
         }
         print("mykeyword",mykeyword)
@@ -157,6 +159,7 @@ extension HomeViewModel {
                 self?.endRefreshing?()
                 self?.reloadData?()
             case .failure(let error):
+                SnackHelper.showSnack(message:error.localizedDescription)
                 print("ERR",error.localizedDescription)
             }
         }

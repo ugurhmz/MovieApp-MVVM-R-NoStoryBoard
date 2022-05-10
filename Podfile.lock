@@ -1,20 +1,24 @@
 PODS:
   - Alamofire (5.5.0)
   - Kingfisher (7.2.0)
+  - SwiftEntryKit (2.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.5)
   - Kingfisher (~> 7.0)
+  - SwiftEntryKit (= 2.0.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Kingfisher
+    - SwiftEntryKit
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   Kingfisher: 3ac0b75b155cabc0e544877d1a4deea29feece92
+  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
 
-PODFILE CHECKSUM: df6fcf8dc8ae6e0cd4eb6893a6fb88d1d790553d
+PODFILE CHECKSUM: ff9a29daa9ec45ae37cde5b164cd462030907868
 
 COCOAPODS: 1.11.2

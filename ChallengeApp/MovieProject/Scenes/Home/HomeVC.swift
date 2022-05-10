@@ -45,7 +45,6 @@ class HomeVC: BaseViewController<HomeViewModel> {
         super.viewDidAppear(animated)
         viewModel.fetchNowPlayingMovies()
         viewModel.fetchUpComingMovies(page: 1)
-        viewModel.fetchSearchMovies()
     }
     
     private func setupViews(){
