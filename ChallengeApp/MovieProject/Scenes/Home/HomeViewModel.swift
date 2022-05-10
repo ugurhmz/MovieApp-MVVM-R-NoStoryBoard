@@ -65,6 +65,10 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
         router.pushHomeDetail(movieId: selectItemId)
     }
     
+    func didSelectSearch(movieId: Int) {
+        router.pushHomeDetail(movieId: movieId)
+    }
+    
     func getMoreMovieData() {
         if !self.isLoading {
             self.isLoading = true

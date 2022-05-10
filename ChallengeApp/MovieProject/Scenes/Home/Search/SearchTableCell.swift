@@ -21,7 +21,7 @@ class SearchTableCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
        let label = UILabel()
-       label.font = .systemFont(ofSize: 22, weight: .bold)
+       label.font = .systemFont(ofSize: 22, weight: .medium)
        label.textColor = .black
        label.numberOfLines = 0
        return label
@@ -31,7 +31,6 @@ class SearchTableCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setConstraints()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -45,9 +44,16 @@ class SearchTableCell: UITableViewCell {
 
 }
 
+//MARK: - Fill Data
 extension SearchTableCell {
-    func fillSearchData(for searchArr: HomeMovieSearchProtocol){
-        self.titleLabel.text = searchArr.movieTitle
+    func fillSearchData(for searchArr: HomeMovieSearchProtocol?){
+        
+        if let mvTitle = searchArr?.movieTitle {
+            if let movieDate =  searchArr?.releaseDateLabel {
+                self.titleLabel.text = "\(mvTitle) (\(movieDate.prefix(4)))"
+            }
+        }
+        
     }
 }
 

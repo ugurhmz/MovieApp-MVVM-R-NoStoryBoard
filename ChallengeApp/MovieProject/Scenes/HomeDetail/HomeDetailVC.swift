@@ -181,6 +181,7 @@ class HomeDetailVC: BaseViewController<HomeDetailViewModel> {
                
         generalCollectionView.collectionViewLayout =  HomeDetailVC.createCompositionalLayout()
         setConstraints()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -14,6 +14,7 @@ enum Sections: Int {
 
 class HomeVC: BaseViewController<HomeViewModel> {
     static var searchClosure: (([HomeMovieSearchProtocol]) -> Void)?
+    
    
     private let homeCollectionView: UICollectionView = {
         let layout =  UICollectionViewFlowLayout()
@@ -41,6 +42,12 @@ class HomeVC: BaseViewController<HomeViewModel> {
         super.viewDidLoad()
         setupViews()
         setConstraints()
+        
+        
+        SearchResultsVC.newClosure = { movieId in
+            print("myitem", movieId)
+            self.viewModel.didSelectSearch(movieId: movieId)
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -80,7 +87,6 @@ extension HomeVC: UISearchResultsUpdating {
     
         viewModel.searchBarText(searchBar.text ?? "")
         viewModel.endRefreshing = { [weak self] in
-          
             guard let sarchArr = self?.viewModel.searchMovieArr else { return }
             HomeVC.searchClosure?(sarchArr)
         }

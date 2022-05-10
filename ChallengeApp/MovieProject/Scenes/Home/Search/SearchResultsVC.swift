@@ -12,6 +12,7 @@ import UIKit
 class SearchResultsVC: UIViewController {
     
     var searchArr: [HomeMovieSearchProtocol]?
+    static var newClosure: IntClosure?
     
     private let tableView: UITableView =  {
         let table = UITableView()
@@ -52,8 +53,9 @@ extension SearchResultsVC: UITableViewDelegate, UITableViewDataSource {
         guard  let cell = tableView.dequeueReusableCell(withIdentifier: SearchTableCell.identifier, for: indexPath) as? SearchTableCell else {
             return UITableViewCell()
         }
-       
-        cell.fillSearchData(for: self.searchArr?[indexPath.row] as! HomeMovieSearchProtocol)
+
+        let movieObj = self.searchArr?[indexPath.row]
+        cell.fillSearchData(for: movieObj)
         return cell
     }
     
@@ -61,4 +63,13 @@ extension SearchResultsVC: UITableViewDelegate, UITableViewDataSource {
         return 70
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let searchMovieId  = self.searchArr?[indexPath.row].movieId else {
+            return
+        }
+        
+        SearchResultsVC.newClosure?(searchMovieId)
+        print("click")
+    }
 }
