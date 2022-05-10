@@ -214,8 +214,12 @@ extension HomeDetailVC {
         
         self.movieImageView.kf.setImage(with: viewModel.movieImageUrl)
         self.overviewLbl.text = viewModel.movieDefinition
+        
         if let mvRate = viewModel.movieRate {
-            self.rateLabel.text = "\(mvRate)"
+           
+            self.rateLabel.text = "\(mvRate)/10"
+            self.rateLabel.colorString(text: "\(mvRate)/10", coloredText: "/10")
+            
         }
         self.releaseDateLabel.text = viewModel.movieReleaseData
         starIcon.image = UIImage(systemName: "star.fill")
