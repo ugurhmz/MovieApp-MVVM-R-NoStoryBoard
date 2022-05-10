@@ -23,10 +23,20 @@ protocol HomeViewModelProtocol: HomeViewModelDataSource, HomeViewModelEventSourc
     var increasePage: Int {get set}
     func getMoreMovieData()
     func didSelectItem(at indexPath: IndexPath)
+    func searchBarText(_ searchText: String)
 }
 
 //MARK: -
 final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
+    private var keyword: String?
+    
+    func searchBarText(_ searchText: String) {
+        self.keyword = searchText
+        fetchSearchMovies()
+    }
+    
+  
+    
     var homeNowPlayingMovieArr: [HomeSliderCellProtocol]?
 
     
@@ -130,4 +140,25 @@ extension HomeViewModel {
                 }
             }
    }
+    
+    func fetchSearchMovies(){
+        guard let mykeyword = self.keyword,
+              !mykeyword.trimmingCharacters(in: .whitespaces).isEmpty,
+              (mykeyword.trimmingCharacters(in: .whitespaces).count) >= 2 else {
+            return
+        }
+        print("mykeyword",mykeyword)
+       
+        let request = MovieSearchRequest(searchQuery: mykeyword)
+        dataProvider.request(for: request) { [weak self] result in
+            switch result {
+            case .success(let response):
+                print("searching",response?.results)
+                self?.endRefreshing?()
+                self?.reloadData?()
+            case .failure(let error):
+                print("ERR",error.localizedDescription)
+            }
+        }
+    }
 }

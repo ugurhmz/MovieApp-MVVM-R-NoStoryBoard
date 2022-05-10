@@ -30,9 +30,9 @@ class HomeVC: BaseViewController<HomeViewModel> {
 
     
     private let searchController: UISearchController = {
-        let sc = UISearchController(searchResultsController: nil)
+        let sc = UISearchController(searchResultsController: SearchCompositionalResultsVC())
         sc.searchBar.placeholder = "Search"
-     
+        
         return sc
     }()
     
@@ -45,6 +45,7 @@ class HomeVC: BaseViewController<HomeViewModel> {
         super.viewDidAppear(animated)
         viewModel.fetchNowPlayingMovies()
         viewModel.fetchUpComingMovies(page: 1)
+        viewModel.fetchSearchMovies()
     }
     
     private func setupViews(){
@@ -57,6 +58,9 @@ class HomeVC: BaseViewController<HomeViewModel> {
             guard let self = self else { return }
             self.homeCollectionView.reloadData()
         }
+        navigationItem.searchController = searchController
+        searchController.searchResultsUpdater = self
+       
     }
 }
 
@@ -65,6 +69,19 @@ extension HomeVC {
     private func setConstraints(){
         homeCollectionView.fillSuperview()
     }
+}
+
+
+//MARK: - Searching
+extension HomeVC: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
+    
+        viewModel.searchBarText(searchBar.text ?? "")
+        
+    }
+    
 }
 
 //MARK: - Delegate, DataSource
