@@ -13,6 +13,7 @@ enum Sections: Int {
 }
 
 class HomeVC: BaseViewController<HomeViewModel> {
+    static var searchClosure: (([HomeMovieSearchProtocol]) -> Void)?
    
     private let homeCollectionView: UICollectionView = {
         let layout =  UICollectionViewFlowLayout()
@@ -78,7 +79,11 @@ extension HomeVC: UISearchResultsUpdating {
         let searchBar = searchController.searchBar
     
         viewModel.searchBarText(searchBar.text ?? "")
-        
+        viewModel.endRefreshing = { [weak self] in
+          
+            guard let sarchArr = self?.viewModel.searchMovieArr else { return }
+            HomeVC.searchClosure?(sarchArr)
+        }
     }
     
 }

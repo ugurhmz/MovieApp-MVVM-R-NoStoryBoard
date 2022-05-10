@@ -39,7 +39,7 @@ final class HomeViewModel: BaseViewModel<HomeRouter>, HomeViewModelProtocol {
   
     
     var homeNowPlayingMovieArr: [HomeSliderCellProtocol]?
-
+    var searchMovieArr: [HomeMovieSearchProtocol]?
     
     var isLoading: Bool = false
     var increasePage: Int = 1
@@ -155,7 +155,12 @@ extension HomeViewModel {
         dataProvider.request(for: request) { [weak self] result in
             switch result {
             case .success(let response):
-                print("searching",response?.results)
+                guard let searchMovieResultArr = response?.results?.map({
+                    return SearchMovieObjModel(id: $0.id,
+                                               title: $0.title,
+                                               releaseDate: $0.releaseDate)
+                }) else { return }
+                self?.searchMovieArr = searchMovieResultArr
                 self?.endRefreshing?()
                 self?.reloadData?()
             case .failure(let error):

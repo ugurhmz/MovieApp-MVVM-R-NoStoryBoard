@@ -23,7 +23,7 @@ public struct MovieSearchModel : Decodable{
     
 }
 
-struct MovieSearchResult : Decodable {
+public struct MovieSearchResult : Decodable {
     let adult : Bool?
     let backdropPath : String?
     let genreIDS : [Int]?
