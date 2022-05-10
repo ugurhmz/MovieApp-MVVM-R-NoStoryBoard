@@ -68,6 +68,12 @@ class HomeDetailViewModel: BaseViewModel<HomeDetailRouter>, HomeDetailViewModelP
     func cellItem(for indexPath: IndexPath) -> SimilarCellProtocoL {
         return similarMovieArr?[indexPath.row] ?? SimilarCellModel()
     }
+    
+    
+    func didSelectTopItem(at indexPath: IndexPath) {
+        let selectItemId = similarMovieArr?[indexPath.item].movieId ?? 0
+        router.pushHomeDetail(movieId: selectItemId)
+    }
 }
 
 //MARK: - Fetch Data

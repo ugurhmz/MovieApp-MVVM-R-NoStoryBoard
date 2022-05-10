@@ -267,6 +267,10 @@ extension HomeDetailVC: UICollectionViewDelegate, UICollectionViewDataSource {
          return view
      }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.didSelectTopItem(at: indexPath)
+    }
+    
 }
 
 
